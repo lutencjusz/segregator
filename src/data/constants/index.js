@@ -1,1 +1,1 @@
-export * from './counter.constants';
+export * from './dictionary.constants';

@@ -1,0 +1,5 @@
+
+// SET DICTIONARY
+export const SET_DICTIONARY = 'SET_DICTIONARY';
+
+

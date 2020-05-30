@@ -1,11 +1,8 @@
 import {combineReducers} from 'redux';
-import counter from './counter.reducer';
-import button from './button.reducer';
-
+import dictionary from './dictionary.reducer';
 
 const rootReducer = combineReducers({
-    counter,
-    button,
+    dictionary,
 })
 
 export default rootReducer;
