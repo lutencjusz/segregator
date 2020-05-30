@@ -2,10 +2,11 @@ import React from 'react'; // umożliwia posiadanie state w komponencie funkcyjn
 import { connect } from 'react-redux'
 import { setCounter } from './data/actions/counter.actions'
 import { setMinState, setMaxState } from './data/actions/button.actions'
-import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import { Typeahead } from 'react-bootstrap-typeahead';
+import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { ToastContainer } from 'react-toastify';
 
 const max = 5;
@@ -36,18 +37,26 @@ function App({
   }
 
   return (
-    <div className="App">
-      <ToastContainer />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>To jest przykładowa aplikcja</h1>
-        <h3>Pokazuje działanie React Redux</h3>
-        <h3>i react-toastify</h3>
-      </header>
-      <div className="body">
-        <h2> Pokazuje wartość selectedId: {counter}</h2>
-        <button className="btn btn-primary" disabled={!buttonState.maxButtonActive} onClick={() => setNewCounter(counter + 1)}>Zwiększ licznik</button>
-        <button className="btn btn-primary" disabled={!buttonState.minButtonActive} onClick={() => setNewCounter(counter - 1)}>Zmniejsz licznik</button>
+    <div className="container">
+      <div className="App">
+        <ToastContainer />
+        <div className="body">
+          <h2> Klasyfikacja śmieci</h2>
+          <Typeahead
+            id="my-typeahead-id"
+            defaultSelected={["John"]}
+            onChange={(selected) => {
+              console.log(selected);
+            }}
+            labelKey="name"
+            options={[
+              { id: 1, name: 'John' },
+              { id: 2, name: 'Miles' },
+              { id: 3, name: 'Charles' },
+              { id: 4, name: 'Herbie' },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );
