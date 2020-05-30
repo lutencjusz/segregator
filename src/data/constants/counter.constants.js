@@ -1,0 +1,7 @@
+
+// SELECTED_PARENT_CATEGORY_ID
+export const SET_COUNTER = 'SET_COUNTER';
+
+export const SET_MAX_STATE = 'SET_MAX_STATE';
+export const SET_MIN_STATE = 'SET_MIN_STATE';
+
