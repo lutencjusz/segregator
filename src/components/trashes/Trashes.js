@@ -6,13 +6,13 @@ const Trashes = ({
   categories, selected
  }) => {
 
-  const getSelected = () => {
-    console.log(selected);
+  const getSelected = (categoryId) => {
+    console.log({selected}, {categoryId});
   }
   
   return <div>
       {categories.map((category) => (
-        <Drop key={category.id} onDrop={(id) => getSelected()}>
+        <Drop key={category.id} onDrop={(id) => getSelected(category.id)}>
           <a key={category.id} href="https://www.w3schools.com">
             <img
               border="0"

@@ -25,6 +25,7 @@ export const Searcher = ({
         options={dictionary}
         allowNew={true}
         newSelectionPrefix="Nowy wybór: "
+        shouldSelect={true}
       />
     </Drag>
   );
