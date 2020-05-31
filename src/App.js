@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
-import { Typeahead } from 'react-bootstrap-typeahead';
-import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { ToastContainer } from 'react-toastify';
 import { setDictionary } from './data/actions/dictionary.actions';
 import {
@@ -12,6 +10,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import { Searcher } from './components';
 
 function App({
   dictionary,
@@ -29,19 +28,16 @@ function App({
         </div>
         <Switch>
           <Route exact path="/">
-            <Typeahead
-              id="my-typeahead-id"
-              defaultSelected={[dictionary[0]]}
-              onChange={(selected) => {
-                console.log(selected);
-              }}
-              labelKey="name"
-              options={dictionary}
-            />
+            <Searcher dictionary={dictionary}></Searcher>
+            <div>
+              <a href="https://www.w3schools.com">
+                <img border="0" alt="W3Schools" src="https://lutencjusz-segregator.s3-eu-west-1.amazonaws.com/bio.png" width="100" height="100"/>
+              </a>
+            </div>
           </Route>
-          <Route path="/pomoc">
-            <h3>Pomoc</h3>
-          </Route>
+            <Route path="/pomoc">
+              <h3>Pomoc</h3>
+            </Route>
         </Switch>
       </div>
     </Router>
@@ -50,8 +46,8 @@ function App({
 
 export default connect(state => {
   return {
-    dictionary: state.dictionary.dictionary,
+        dictionary: state.dictionary.dictionary,
   }
 }, {
-  setDictionary
-})(App);
+        setDictionary
+      })(App);
