@@ -8,7 +8,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import { Searcher, Trashes } from './components';
+import { Searcher} from './components';
 
 function App() {
 
@@ -24,7 +24,6 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Searcher/>
-            <Trashes/>
           </Route>
           <Route path="/pomoc">
             <h3>Pomoc</h3>

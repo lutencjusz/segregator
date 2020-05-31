@@ -15,8 +15,10 @@ export const setSelected = (selected) => {
         payload: selected,
     }
 
-    if (objResult.payload?.customOption)
+    if (objResult.payload?.customOption){
         objResult.message = `Nie znalazłem "${objResult.payload.name}" w słowniku. Zgłosiłem nową wpis...`
+    }
+        
 
     console.log({ objResult })
     return objResult;
