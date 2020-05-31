@@ -1,1 +1,1 @@
-export {Searcher} from './Searcher.jsx';
+export {default as Searcher} from './Searcher.jsx';

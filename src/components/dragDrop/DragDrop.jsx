@@ -10,7 +10,7 @@ export const Drag = ({data, image, children}) => {
             e.dataTransfer.setDragImage(obrazek, 20, 20);
         }
 
-        e.dataTransfer.setData('application/x-kurs-id', `${data.id}`); // w Edge musi byc string
+        e.dataTransfer.setData('application/x-kurs-id', `${data.name}`); // w Edge musi byc string
         //korzysta z interfejsu transfer do podniesienia
 
     }
@@ -29,5 +29,5 @@ export const Drop = (props) => {
         props.onDrop(dane, e)
     }
 
-    return <div onDragOver={onDragOver} onDrop={onDrop}>{props.children}</div>
+    return <span onDragOver={onDragOver} onDrop={onDrop}>{props.children}</span>
 }

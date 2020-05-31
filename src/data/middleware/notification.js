@@ -1,7 +1,7 @@
 import {toast} from 'react-toastify';
 
 const notificationsMiddleware = () => next => action => {
-    if (action.message && /(.*)_(COUNTER)/.test(action.type)){ //szuka wyrażenia COUNTER
+    if (action.message && /(.*)_(SELECTED)/.test(action.type)){ //szuka wyrażenia COUNTER
         toast(action.message
             , {
                 position: "top-right",
