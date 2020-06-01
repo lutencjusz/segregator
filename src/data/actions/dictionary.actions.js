@@ -1,11 +1,18 @@
 import {
-    SET_DICTIONARY, SET_SELECTED,
+    SET_DICTIONARY, SET_SELECTED, SET_CATEGORIES
 } from '../constants';
 
-export const setDictionary = (Dictionary) => {
+export const setDictionary = (dictionary) => {
     return {
         type: SET_DICTIONARY,
-        payload: Dictionary,
+        payload: dictionary,
+    };
+}
+
+export const setCategories = (categories) => {
+    return {
+        type: SET_CATEGORIES,
+        payload: categories,
     };
 }
 
@@ -20,6 +27,6 @@ export const setSelected = (selected) => {
     }
         
 
-    console.log({ objResult })
+    // console.log({ objResult })
     return objResult;
 }

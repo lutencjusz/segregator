@@ -1,4 +1,5 @@
-import React from 'react'; // umożliwia posiadanie state w komponencie funkcyjnym (np. App.js)
+import React, { useEffect } from 'react'; // umożliwia posiadanie state w komponencie funkcyjnym (np. App.js)
+import { connect } from 'react-redux';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,11 +9,41 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import { Searcher} from './components';
+import { Searcher } from './components';
+import {
+  setDictionary,
+  setCategories,
+} from "data/actions/dictionary.actions";
+import { useQuery } from "react-query";
+import API from "data/fetch";
+import { SuspenseErrorBoundary } from "components";
 
-function App() {
+
+function App({
+  setDictionary,
+  setCategories
+}) {
+
+  const { data: allDictionary } = useQuery(
+    "allDictionary",
+    API.dictionary.fetchAllDictionary
+  );
+
+  useEffect(() => { //zamiast useMemo, które powoduje błąd
+    setDictionary(allDictionary);
+  }, [allDictionary, setDictionary])
+
+  const { data: allCategories } = useQuery(
+    "allCategories",
+    API.dictionary.fetchAllCategories
+  );
+
+  useEffect(() => {
+    setCategories(allCategories);
+  }, [allCategories, setCategories])
 
   return (
+
     <Router>
       <div className="container">
         <div className="App">
@@ -23,7 +54,9 @@ function App() {
         </div>
         <Switch>
           <Route exact path="/">
-            <Searcher/>
+            <SuspenseErrorBoundary>
+              <Searcher />
+            </SuspenseErrorBoundary>
           </Route>
           <Route path="/pomoc">
             <h3>Pomoc</h3>
@@ -34,4 +67,7 @@ function App() {
   );
 }
 
-export default App;
+export default connect(null, {
+  setDictionary,
+  setCategories
+})(App);

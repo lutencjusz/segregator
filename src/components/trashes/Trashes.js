@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Drop } from '../dragDrop';
 import Swal from 'sweetalert2';
+import { LoadingIndicator } from 'components'
 
 const Trashes = ({
   categories, selected
@@ -17,14 +18,15 @@ const Trashes = ({
         cancelButtonText: 'Rezygnuję',
         confirmButtonText: 'Zmień kategorię',
       }).then((result) => {
-        console.log({result});
+        console.log({ result });
       });
     }
 
   }
 
-  return <div>
-    {categories.map((category) => (
+  return <React.Suspense fallback={<LoadingIndicator />}>
+    { categories ?
+    categories.map((category) => (
       <Drop key={category.id} onDrop={(id) => getSelected(category.id)}>
         <a key={category.id} href="https://www.w3schools.com">
           <img
@@ -37,8 +39,10 @@ const Trashes = ({
           />
         </a>
       </Drop>
-    ))}
-  </div>
+    )) : null
+    }
+  </React.Suspense>
+
 };
 
 

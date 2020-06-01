@@ -1,11 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import { Drag } from "../dragDrop";
-import  Trashes  from "../trashes";
-import  Description  from "../description";
+import Trashes from "../trashes";
+import Description from "../description";
 import { setSelected } from "../../data/actions/dictionary.actions";
+import { SuspenseErrorBoundary } from "components";
 
 export const Searcher = ({ dictionary, selected, setSelected }) => {
   const changeSeletedId = (newId) => {
@@ -13,27 +14,33 @@ export const Searcher = ({ dictionary, selected, setSelected }) => {
     // console.log({newId});
   };
 
+  // console.log({dictionary})
   return (
     <div className="row">
-      {console.log({selected})}
-      <div className={(selected && !selected.customOption) ? "col-6" : "col-12"}>
-        <Drag data={dictionary[0]}>
-          <Typeahead
-            id="my-typeahead-id"
-            defaultSelected={[dictionary[0]]}
-            onChange={(selected) => changeSeletedId(selected[0])} // zapisuje tylko pierwszy wybrany
-            labelKey="name"
-            options={dictionary}
-            allowNew={true}
-            newSelectionPrefix="Nowy wybór: "
-            shouldSelect={true}
-          />
-        </Drag>
-        <Trashes />
+      <div className={selected && !selected.customOption ? "col-6" : "col-12"}>
+        <SuspenseErrorBoundary>
+          {dictionary ? (
+            <Fragment>
+              <Drag data={"1"}>
+                <Typeahead
+                  id="my-typeahead-id"
+                  // defaultInputValue = "Wprowadź poszukawane hasło"
+                  onChange={(selected) => changeSeletedId(selected[0])} // zapisuje tylko pierwszy wybrany
+                  labelKey="name"
+                  options={dictionary}
+                  allowNew={true}
+                  newSelectionPrefix="Nowy wybór: "
+                  shouldSelect={true}
+                />
+              </Drag>
+              <Trashes />{" "}
+            </Fragment>
+          ) : null}
+        </SuspenseErrorBoundary>
       </div>
-      {(selected && !selected.customOption) ? (
+      {selected && !selected.customOption ? (
         <div className="col-6">
-          <Description/>
+          <Description />
         </div>
       ) : null}
     </div>
