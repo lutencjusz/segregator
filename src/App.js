@@ -9,7 +9,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useParams,
 } from 'react-router-dom';
 import {
   setDictionary,
@@ -42,9 +41,8 @@ const App = ({
     setCategories(allCategories);
   }, [allCategories, setCategories]);
 
-  const Child = () => { //żeby wyciągnąć parametr ze strony
-    let { id } = useParams();
-    return <DescCategories selectedCategories={id} />;
+  const Child = ({match}) => { //użycie components powoduje, że jest dynamiczne odświerzanie
+    return <DescCategories selectedCategories={match.params.id} />;
   }
 
   return (
@@ -62,11 +60,7 @@ const App = ({
               <Searcher />
             </SuspenseErrorBoundary>
           </Route>
-          <Route path="/pomoc/:id">
-            <SuspenseErrorBoundary>
-              <Child />
-            </SuspenseErrorBoundary>
-          </Route>
+          <Route path="/pomoc/:id" component={Child}/>
         </Switch>
       </div>
     </Router>
