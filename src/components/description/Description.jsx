@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const Description = ({ selected, dictionary, categories }) => {
+const Description = ({ selected, categories }) => {
 //   console.log({ selected }, { categories });
   return (
     <div className="media">
@@ -23,7 +23,6 @@ const Description = ({ selected, dictionary, categories }) => {
 
 export default connect((state) => {
   return {
-    dictionary: state.dictionary.dictionary,
     categories: state.dictionary.categories,
     selected: state.dictionary.selected,
   };

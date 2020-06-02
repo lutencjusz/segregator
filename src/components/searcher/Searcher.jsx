@@ -1,19 +1,25 @@
-import React, { Fragment } from "react";
+import React, { Fragment} from "react";
 import { connect } from "react-redux";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import { Drag } from "../dragDrop";
 import Trashes from "../trashes";
 import Description from "../description";
-import { setSelected } from "../../data/actions/dictionary.actions";
 import { SuspenseErrorBoundary } from "components";
+import {
+  setSelected
+} from "../../data/actions/dictionary.actions";
 
-export const Searcher = ({ dictionary, selected, setSelected }) => {
+export const Searcher = ({ // ładuje dane ze store i wyszukuje pojecia
+  dictionary,
+  selected,
+  setSelected
+}) => {
+
   const changeSeletedId = (newId) => {
     setSelected(newId);
     // console.log({newId});
   };
-
   // console.log({dictionary})
   return (
     <div className="row">
@@ -33,7 +39,7 @@ export const Searcher = ({ dictionary, selected, setSelected }) => {
                   shouldSelect={true}
                 />
               </Drag>
-              <Trashes />{" "}
+              <Trashes />
             </Fragment>
           ) : null}
         </SuspenseErrorBoundary>
@@ -53,8 +59,7 @@ export default connect(
       dictionary: state.dictionary.dictionary,
       selected: state.dictionary.selected,
     };
-  },
-  {
-    setSelected,
+  }, {
+    setSelected
   }
 )(Searcher);

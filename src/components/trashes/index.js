@@ -1,1 +1,1 @@
-export {default} from './Trashes';
+export {default} from './Trashes.jsx';

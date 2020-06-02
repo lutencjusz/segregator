@@ -28,7 +28,7 @@ const Trashes = ({
     { categories ?
     categories.map((category) => (
       <Drop key={category.id} onDrop={(id) => getSelected(category.id)}>
-        <a key={category.id} href="https://www.w3schools.com">
+        <a key={category.id} href={`http://localhost:3000/pomoc/${category.id}`}>
           <img
             border="0"
             className="odstep"
