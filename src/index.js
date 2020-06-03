@@ -19,7 +19,7 @@ ReactDOM.render(
     <ReactQueryConfigProvider config={queryConfig}>
       <SuspenseErrorBoundary>
         <Provider store={store}>
-          <App />
+          <App/>
         </Provider>
       </SuspenseErrorBoundary>
     </ReactQueryConfigProvider>

@@ -2,6 +2,7 @@ import {
     SET_DICTIONARY,
     SET_CATEGORIES,
     SET_SELECTED,
+    SET_SELECTED_CATEGORIES,
 } from '../constants';
 
 const initialState = {}
@@ -23,6 +24,11 @@ function dictionary(state = initialState, action) {
             return {
                 ...state,
                 selected: action.payload
+            }
+        case SET_SELECTED_CATEGORIES:
+            return {
+                ...state,
+                selectedCategories: action.payload
             }
         default:
             return state;

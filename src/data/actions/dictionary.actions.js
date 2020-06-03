@@ -1,5 +1,5 @@
 import {
-    SET_DICTIONARY, SET_SELECTED, SET_CATEGORIES
+    SET_DICTIONARY, SET_SELECTED, SET_CATEGORIES, SET_SELECTED_CATEGORIES
 } from '../constants';
 
 export const setDictionary = (dictionary) => {
@@ -13,6 +13,13 @@ export const setCategories = (categories) => {
     return {
         type: SET_CATEGORIES,
         payload: categories,
+    };
+}
+
+export const setSelectedCategories = (selectedCategories) => {
+    return {
+        type: SET_SELECTED_CATEGORIES,
+        payload: selectedCategories,
     };
 }
 

@@ -41,17 +41,15 @@ const App = ({
     setCategories(allCategories);
   }, [allCategories, setCategories]);
 
-  const Child = ({match}) => { //użycie components powoduje, że jest dynamiczne odświerzanie
-    return <DescCategories selectedCategories={match.params.id} />;
-  }
-
   return (
     <Router>
-      <div className="container">
+      <div className="container tlo">
         <div className="App">
           <ToastContainer />
-          <div className="body">
-            <h2> Klasyfikacja śmieci</h2>
+          <div>
+            <a href="/" className="naglowek_a">
+              <h2 className="naglowek"> Klasyfikacja śmieci</h2>
+            </a>
           </div>
         </div>
         <Switch>
@@ -60,7 +58,9 @@ const App = ({
               <Searcher />
             </SuspenseErrorBoundary>
           </Route>
-          <Route path="/pomoc/:id" component={Child}/>
+          <Route path="/pomoc">
+            <DescCategories />
+          </Route>
         </Switch>
       </div>
     </Router>

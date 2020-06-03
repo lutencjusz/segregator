@@ -21,7 +21,7 @@
 }
 
 .typeahead {
-  background-color: #fff;
+  background-color: #80FF80;
 }
 
 .typeahead:focus {
@@ -35,7 +35,7 @@
 }
 
 .tt-hint {
-  color: #999 !important;
+  color: #80FF80 !important;
   opacity: 0.5;
 }
 
@@ -44,7 +44,7 @@
   /*width: 422px;
   */margin: 12px 0;
   padding: 8px 0;
-  background-color: #fff;
+  background-color: #80FF80;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 8px;
@@ -63,12 +63,12 @@
 
 .tt-suggestion:hover {
   cursor: pointer;
-  color: #fff;
+  color: #80FF80;
   background-color: #0097cf;
 }
 
 .tt-suggestion.tt-cursor {
-  color: #fff;
+  color: #80FF80;
   background-color: #0097cf;
 
 }
@@ -78,5 +78,5 @@
 }
 
 .gist {
-  font-size: 14px;
+  font-size: 12px;
 }

@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { LoadingIndicator } from 'components';
 
 class SuspenseErrorBoundary extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = { hasError: false };
@@ -15,7 +16,7 @@ class SuspenseErrorBoundary extends React.Component {
   componentDidCatch(error) {
     // Możesz także zalogować błąd do zewnętrznego serwisu raportowania błędów
     // logErrorToMyService(error, errorInfo);
-    console.log(error);
+    // console.log(error);
   }
 
   tryAgain = () => {

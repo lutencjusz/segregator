@@ -1,18 +1,68 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  margin: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .odstep {
-  padding: 20px;
+  margin: 15px;
   text-align: center;
+}
+
+.tlo {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  background-color: #80ff80;
+}
+
+.button_w {
+  margin: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #80ff80;
+  transition-duration: 0.4s;
+  box-shadow: 10px 10px 50px #6dd96d, -10px -10px 50px #93ff93;
+  
+}
+
+.button_w:hover {
+  box-shadow: 10px 10px 50px #6dd96d, -10px -10px 50px #93ff93;
+  transform: translateY(-2px);
+}
+
+.button_w:active {
+  transition-duration: 0s;
+  transform: translateY(5px);
+}
+
+.button_w:focus {
+  outline-color:#6dd96d;
+}
+
+.media img {
+  border-radius: 5px;
+  background: #80ff80;
+  box-shadow: inset 14px 14px 22px #5dba5d, inset -13px -13px 22px #a3ffa3;
+}
+
+.naglowek {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+  border-radius: 10px;
+  background: #80ff80;
+  box-shadow: inset 4px 4px 12px #5dba5d, inset -3px -3px 12px #a3ffa3;
+  text-shadow: 0 1px 1px #5dba5d
+}
+
+.naglowek_a:hover{
+  text-decoration: none;
 }

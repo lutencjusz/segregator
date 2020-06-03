@@ -5,7 +5,7 @@ const notificationsMiddleware = () => next => action => {
         toast(action.message
             , {
                 position: "top-right",
-                autoClose: 2000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
