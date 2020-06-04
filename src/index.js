@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import configureStore from './data/Store';
+import './components/i18n/i18n';
 import { Provider } from 'react-redux';
 import { ReactQueryConfigProvider } from 'react-query'; // umożliwa użycie useQuery
 import { SuspenseErrorBoundary } from 'components';

@@ -13,8 +13,12 @@ code {
 }
 
 .odstep {
-  margin: 15px;
+  margin: 10px;
   text-align: center;
+}
+
+.doPrawej {
+  text-align: right;
 }
 
 .tlo {
@@ -24,6 +28,8 @@ code {
 }
 
 .button_w {
+  color: white;
+  text-shadow: 0 1px 1px #6dd96d;
   margin: 15px;
   border: none;
   border-radius: 10px;
@@ -35,7 +41,7 @@ code {
 
 .button_w:hover {
   box-shadow: 10px 10px 50px #6dd96d, -10px -10px 50px #93ff93;
-  transform: translateY(-2px);
+  transform: scale(1.1);
 }
 
 .button_w:active {

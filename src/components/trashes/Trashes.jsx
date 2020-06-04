@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { LoadingIndicator } from "components";
 import { setSelectedCategories } from "data/actions/dictionary.actions";
 import { useHistory } from "react-router";
+import ButtonNew from "../buttonNew";
 
 const Trashes = ({ setSelectedCategories, categories, selected }) => {
   const getSelected = (categoryId) => {
@@ -36,20 +37,7 @@ const Trashes = ({ setSelectedCategories, categories, selected }) => {
       {categories
         ? categories.map((category) => (
             <Drop key={category.id} onDrop={(id) => getSelected(category.id)}>
-              <button
-                className="button_w"
-                onClick={() => pushButton(category.id)}
-                key={category.id}
-              >
-                <img
-                  border="0"
-                  className="odstep"
-                  alt={category.name}
-                  src={category.image}
-                  width="100"
-                  height="100"
-                />
-              </button>
+              <ButtonNew category={category} size={100} onClick={() => pushButton(category.id)}/>
             </Drop>
           ))
         : null}
