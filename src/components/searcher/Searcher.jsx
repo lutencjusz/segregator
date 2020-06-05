@@ -18,7 +18,7 @@ export const Searcher = ({ // ładuje dane ze store i wyszukuje pojecia
 
   const changeSeletedId = (newId) => {
     setSelected(newId);
-    // console.log({newId});
+    console.log({newId});
   };
   // console.log({dictionary})
   return (

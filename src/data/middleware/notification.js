@@ -13,9 +13,14 @@ const notificationsMiddleware = () => next => action => {
                 progress: undefined,
                 }
             );
+            const {promise, type, ...rest} = action;
+            next({
+                type: 'SET_CANDIDATES',
+                ...rest
+            });
         
     }
-    next(action); //coś niegra z tym next
+    next(action);
 }
 
 export default notificationsMiddleware;

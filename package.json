@@ -41,6 +41,7 @@
     "i18next-xhr-backend": "^3.2.2",
     "react-i18next": "^11.5.0",
     "react-redux": "^7.2.0",
+    "react-router": "^5.2.0",
     "react-toastify": "^6.0.5",
     "redux": "^4.0.5",
     "redux-devtools": "^3.5.0",

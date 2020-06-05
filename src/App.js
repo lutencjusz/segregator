@@ -15,7 +15,7 @@ import {
   setDictionary,
   setCategories,
 } from "./data/actions/dictionary.actions";
-import { SuspenseErrorBoundary, Searcher, DescCategories, ButtonNew } from "components";
+import { SuspenseErrorBoundary, Searcher, DescCategories, ButtonNew, AddCandidate } from "components";
 import API from "data/fetch";
 
 const App = ({
@@ -24,6 +24,7 @@ const App = ({
 }) => {
 
   const { t, i18n } = useTranslation();
+  
   const { data: allDictionary } = useQuery(
     "allDictionary",
     API.dictionary.fetchAllDictionary
@@ -50,12 +51,12 @@ const App = ({
           <ToastContainer />
           <div>
             <div className="doPrawej">
-              <ButtonNew category={{ id: 1 }} size={500} onClick={() => i18n.changeLanguage('pl')}>pl</ButtonNew>
+              <ButtonNew category={{ id: 1 }} size={100} onClick={() => i18n.changeLanguage('pl')}>pl</ButtonNew>
               <ButtonNew category={{ id: 2 }} size={100} onClick={() => i18n.changeLanguage('en')}>en</ButtonNew>
               <ButtonNew category={{ id: 3 }} size={100} onClick={() => i18n.changeLanguage('de')}>de</ButtonNew>
               <ButtonNew category={{ id: 4 }} size={100} onClick={() => i18n.changeLanguage('fr')}>fr</ButtonNew>
             </div>
-            <a href="/" className="naglowek_a">
+            <a href="/#/" className="naglowek_a">
               <h2 className="naglowek"> {t('Klasyfikacja śmieci')}</h2>
             </a>
           </div>
@@ -68,6 +69,9 @@ const App = ({
           </Route>
           <Route path="/pomoc">
             <DescCategories />
+          </Route>
+          <Route path="/dodajKandydata">
+            <AddCandidate />
           </Route>
         </Switch>
       </div>

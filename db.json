@@ -1,4 +1,4 @@
-{ 
+{
   "dictionary": [
     {
       "id": 1,
@@ -61,6 +61,18 @@
       "id": 5,
       "name": "Zmieszane",
       "image": "https://lutencjusz-segregator.s3-eu-west-1.amazonaws.com/zmieszne.png"
+    }
+  ],
+  "candidates": [
+    {
+      "customOption": true,
+      "name": "ewrwfggew",
+      "id": "new-id-2"
+    },
+    {
+      "customOption": true,
+      "name": "ewrwew",
+      "id": "new-id-1"
     }
   ]
 }
