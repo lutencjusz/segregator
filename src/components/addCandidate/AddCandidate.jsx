@@ -2,11 +2,21 @@ import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { SuspenseErrorBoundary } from "components";
 import CandidateItem from "./CandidateItem.jsx";
+import FormCandidate from "./FormCandidate.jsx";
 import API from "data/fetch";
 import { useQuery } from "react-query";
-import { setCandidates } from "data/actions/dictionary.actions.js";
+import {
+  setCandidates,
+  setSelectedCandidate,
+} from "data/actions/dictionary.actions.js";
 
-const AddCandidate = ({ categories, candidates, setCandidates }) => {
+const AddCandidate = ({
+  categories,
+  candidates,
+  selectedCandidate,
+  setCandidates,
+  setSelectedCandidate,
+}) => {
   const { data: allCandidates } = useQuery(
     "allCandidates",
     API.dictionary.fetchAllCandidates
@@ -21,27 +31,23 @@ const AddCandidate = ({ categories, candidates, setCandidates }) => {
     <SuspenseErrorBoundary>
       {categories && candidates ? (
         <Fragment>
-          <div className="row">
+          <div className="row odstep">
             <div className="col-2">
               <ul className="list-group list-group-flush">
                 {candidates.map((item) => (
-                  <CandidateItem key={item.id} item={item} />
+                  <CandidateItem
+                    key={item.id}
+                    item={item}
+                    onClick={() => setSelectedCandidate(item)}
+                  />
                 ))}
               </ul>
             </div>
-            <div className="col-8">
-              <div className="media">
-                <img
-                  src={categories[0].image}
-                  className="mr-3"
-                  alt={categories[0].name}
-                />
-                <div className="media-body">
-                  <h4 className="mt-0">{categories[0].name}</h4>
-                  <h5>należy wrzucić do pojemników na {categories[0].name}</h5>
-                  Krótki opis dlaczego
-                </div>
-              </div>
+            <div className="col-2"></div>
+            <div className="col-6">
+              {selectedCandidate ? (
+                <FormCandidate onSubmit={() => console.log("AddCandidate")} />
+              ) : null}
             </div>
           </div>
         </Fragment>
@@ -55,9 +61,11 @@ export default connect(
     return {
       categories: state.dictionary.categories,
       candidates: state.dictionary.candidates,
+      selectedCandidate: state.dictionary.selectedCandidate,
     };
   },
   {
     setCandidates,
+    setSelectedCandidate,
   }
 )(AddCandidate);

@@ -1,22 +1,23 @@
 import {
-    SET_DICTIONARY,
-    SET_CATEGORIES,
+    GET_DICTIONARY,
+    GET_CATEGORIES,
     SET_SELECTED,
     SET_SELECTED_CATEGORIES,
-    SET_CANDIDATES,
+    GET_CANDIDATES,
+    SET_SELECTED_CANDIDATE,
 } from '../constants';
 
-const initialState = {candidates: []} // musi być zainicjowane, żeby być tablicą
+const initialState = { candidates: [] } // musi być zainicjowane, żeby być tablicą
 
 function dictionary(state = initialState, action) {
 
     switch (action.type) {
-        case SET_DICTIONARY:
+        case GET_DICTIONARY:
             return {
                 ...state,
                 dictionary: action.payload
             }
-        case SET_CATEGORIES:
+        case GET_CATEGORIES:
             return {
                 ...state,
                 categories: action.payload
@@ -31,7 +32,12 @@ function dictionary(state = initialState, action) {
                 ...state,
                 selectedCategories: action.payload
             }
-        case SET_CANDIDATES:
+        case SET_SELECTED_CANDIDATE:
+            return {
+                ...state,
+                selectedCandidate: action.payload
+            }
+        case GET_CANDIDATES:
             return {
                 ...state,
                 candidates: action.payload
