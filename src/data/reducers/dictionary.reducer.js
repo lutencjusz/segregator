@@ -1,5 +1,6 @@
 import {
     GET_DICTIONARY,
+    SET_DICTIONARY,
     GET_CATEGORIES,
     SET_SELECTED,
     SET_SELECTED_CATEGORIES,
@@ -7,7 +8,7 @@ import {
     SET_SELECTED_CANDIDATE,
 } from '../constants';
 
-const initialState = { candidates: [] } // musi być zainicjowane, żeby być tablicą
+const initialState = { candidates: [], dictionary: [] } // musi być zainicjowane, żeby być tablicą
 
 function dictionary(state = initialState, action) {
 
@@ -16,6 +17,11 @@ function dictionary(state = initialState, action) {
             return {
                 ...state,
                 dictionary: action.payload
+            }
+        case SET_DICTIONARY:
+            return {
+                ...state,
+                dictionary: [...state.dictionary, action.payload]
             }
         case GET_CATEGORIES:
             return {

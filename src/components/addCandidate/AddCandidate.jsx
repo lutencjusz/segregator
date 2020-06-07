@@ -1,31 +1,21 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { SuspenseErrorBoundary } from "components";
 import CandidateItem from "./CandidateItem.jsx";
 import FormCandidate from "./FormCandidate.jsx";
 import API from "data/fetch";
 import { useQuery } from "react-query";
-import {
-  setCandidates,
-  setSelectedCandidate,
-} from "data/actions/dictionary.actions.js";
+import { setSelectedCandidate } from "data/actions/dictionary.actions.js";
 
 const AddCandidate = ({
   categories,
-  candidates,
   selectedCandidate,
-  setCandidates,
   setSelectedCandidate,
 }) => {
-  const { data: allCandidates } = useQuery(
-    "allCandidates",
+  const { data: candidates } = useQuery(
+    "candidates",
     API.dictionary.fetchAllCandidates
   );
-
-  useEffect(() => {
-    //zamiast useMemo, które powoduje błąd
-    setCandidates(allCandidates);
-  }, [allCandidates, setCandidates]);
 
   return (
     <SuspenseErrorBoundary>
@@ -60,12 +50,10 @@ export default connect(
   (state) => {
     return {
       categories: state.dictionary.categories,
-      candidates: state.dictionary.candidates,
       selectedCandidate: state.dictionary.selectedCandidate,
     };
   },
   {
-    setCandidates,
     setSelectedCandidate,
   }
 )(AddCandidate);

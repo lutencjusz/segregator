@@ -6,8 +6,16 @@ import { LoadingIndicator } from "components";
 import { setSelectedCategories } from "data/actions/dictionary.actions";
 import { useHistory } from "react-router";
 import ButtonNew from "../buttonNew";
+import API from "data/fetch";
+import { useQuery } from "react-query";
 
-const Trashes = ({ setSelectedCategories, categories, selected }) => {
+const Trashes = ({ setSelectedCategories, selected }) => {
+
+  const { data: categories } = useQuery(
+    "categories",
+    API.dictionary.fetchAllCategories
+  );
+
   const getSelected = (categoryId) => {
     console.log({ selected }, { categoryId });
     if (selected && categoryId !== selected.categoryId) {
@@ -48,7 +56,6 @@ const Trashes = ({ setSelectedCategories, categories, selected }) => {
 export default connect(
   (state) => {
     return {
-      categories: state.dictionary.categories,
       selected: state.dictionary.selected,
     };
   },

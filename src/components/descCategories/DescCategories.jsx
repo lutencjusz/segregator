@@ -2,9 +2,16 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import Trashes from "../trashes";
 import { SuspenseErrorBoundary } from "components";
+import API from "data/fetch";
+import { useQuery } from "react-query";
 
-const DescCategories = ({ categories, selectedCategories }) => {
-  // console.log({ selectedCategories, categories });
+const DescCategories = ({ selectedCategories }) => {
+  
+  const { data: categories } = useQuery(
+    "categories",
+    API.dictionary.fetchAllCategories
+  );
+
   return (
     <SuspenseErrorBoundary>
       {categories ? (
@@ -13,7 +20,7 @@ const DescCategories = ({ categories, selectedCategories }) => {
             <Trashes />
           </div>
           <div className="row">
-            <div className="col-2"/>
+            <div className="col-2" />
             <div className="col-8">
               <div className="media">
                 <img
@@ -42,7 +49,6 @@ const DescCategories = ({ categories, selectedCategories }) => {
 
 export default connect((state) => {
   return {
-    categories: state.dictionary.categories,
     selectedCategories: state.dictionary.selectedCategories,
   };
 })(DescCategories);

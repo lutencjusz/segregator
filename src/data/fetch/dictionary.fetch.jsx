@@ -19,8 +19,9 @@ export const fetchAllCandidates = async () => {
     return data; // zwraca zartość, a nie promise
 }
 
-export const addEpression = async ({ budgetId, data }) => { // jeżeli przekazuje obiekt, to kolejność mnie nie interesuje
+export const fetchAddEpression = async (data) => { // jeżeli przekazuje obiekt, to kolejność mnie nie interesuje
     // dostosowanie wyniku [] do useMutaion 
+    console.log({data})
     const response = await fetch(`${process.env.REACT_APP_API_URL}/dictionary`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

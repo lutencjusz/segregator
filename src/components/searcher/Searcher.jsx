@@ -9,12 +9,18 @@ import { SuspenseErrorBoundary } from "components";
 import {
   setSelected
 } from "../../data/actions/dictionary.actions";
+import API from "data/fetch";
+import { useQuery } from "react-query";
 
 export const Searcher = ({ // ładuje dane ze store i wyszukuje pojecia
-  dictionary,
   selected,
   setSelected
 }) => {
+
+  const { data: dictionary } = useQuery(
+    "dictionary",
+    API.dictionary.fetchAllDictionary
+  );
 
   const changeSeletedId = (newId) => {
     setSelected(newId);
@@ -56,7 +62,6 @@ export const Searcher = ({ // ładuje dane ze store i wyszukuje pojecia
 export default connect(
   (state) => {
     return {
-      dictionary: state.dictionary.dictionary,
       selected: state.dictionary.selected,
     };
   }, {

@@ -2,23 +2,27 @@ import React from "react";
 import { connect } from "react-redux";
 import { Form } from "react-final-form";
 import { TextField, Radios } from "mui-rff";
-import { noop } from "lodash";
-import { setSelectedCandidate } from "data/actions/dictionary.actions.js";
+import {
+  setSelectedCandidate,
+  setDictionary,
+} from "data/actions/dictionary.actions.js";
 import { Paper, Grid, Button } from "@material-ui/core";
+import API from "data/fetch";
 
 const FormCandidate = ({
   selectedCandidate,
   categories,
+  dictionary,
   setSelectedCandidate,
-  onSubmit = noop,
+  setDictionary,
 }) => {
   const validate = (values) => {
     const errors = {};
     if (!values.name) {
       errors.name = "Wprowadź nazwę!";
     }
-    if (!values.category) {
-      errors.category = "Wybierz kategorię!";
+    if (!values.categoryId) {
+      errors.categoryId = "Wybierz kategorię!";
     }
     return errors;
   };
@@ -34,7 +38,7 @@ const FormCandidate = ({
       size: 12,
       field: (
         <Radios
-          name="category"
+          name="categoryId"
           formControlProps={{ margin: "none" }}
           radioGroupProps={{ row: true }}
           data={[
@@ -63,10 +67,25 @@ const FormCandidate = ({
       ),
     },
   ];
+
+  const onSubmit = (e) => {
+    const result = e;
+    result.id =
+      dictionary.reduce(function (prev, current) {
+        // znajduje max
+        return prev.id > current.id ? prev : current;
+      }).id + 1;
+    result.categoryId = parseInt(e.categoryId, 10); // zamienia string na int
+
+    setDictionary(result);
+    API.dictionary.fetchAddEpression(result);
+    console.log({ result });
+  };
+
   return (
     <Form
       onSubmit={onSubmit}
-      initialValues={{ name: selectedCandidate.name }}
+      initialValues={{ name: selectedCandidate.name, id: selectedCandidate.id }}
       validate={validate}
       render={({ handleSubmit, form, submitting, pristine, values }) => (
         <form onSubmit={handleSubmit} noValidate>
@@ -102,10 +121,12 @@ export default connect(
   (state) => {
     return {
       categories: state.dictionary.categories,
+      dictionary: state.dictionary.dictionary,
       selectedCandidate: state.dictionary.selectedCandidate,
     };
   },
   {
     setSelectedCandidate,
+    setDictionary,
   }
 )(FormCandidate);

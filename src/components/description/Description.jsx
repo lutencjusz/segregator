@@ -1,8 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
+import API from "data/fetch";
+import { useQuery } from "react-query";
 
-const Description = ({ selected, categories }) => {
-//   console.log({ selected }, { categories });
+const Description = ({ selected}) => {
+
+  const { data: categories } = useQuery(
+    "categories",
+    API.dictionary.fetchAllCategories
+  );
+
   return (
     <div className="media">
       <img
@@ -23,7 +30,6 @@ const Description = ({ selected, categories }) => {
 
 export default connect((state) => {
   return {
-    categories: state.dictionary.categories,
     selected: state.dictionary.selected,
   };
 })(Description);

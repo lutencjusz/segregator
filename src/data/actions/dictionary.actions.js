@@ -1,16 +1,23 @@
 import {
     GET_DICTIONARY, SET_SELECTED, GET_CATEGORIES, SET_SELECTED_CATEGORIES, 
-    GET_CANDIDATES, SET_SELECTED_CANDIDATE
+    GET_CANDIDATES, SET_SELECTED_CANDIDATE, SET_DICTIONARY
 } from '../constants';
 
-export const setDictionary = (dictionary) => {
+export const getDictionary = (dictionary) => {
     return {
         type: GET_DICTIONARY,
         payload: dictionary,
     };
 }
 
-export const setCategories = (categories) => {
+export const setDictionary = (dictionary) => {
+    return {
+        type: SET_DICTIONARY,
+        payload: dictionary,
+    };
+}
+
+export const getCategories = (categories) => {
     return {
         type: GET_CATEGORIES,
         payload: categories,
@@ -31,7 +38,7 @@ export const setSelectedCandidate = (selectedCandidate) => {
     };
 }
 
-export const setCandidates = (cadidate) => {
+export const getCandidates = (cadidate) => {
     return {
         type: GET_CANDIDATES,
         payload: cadidate,

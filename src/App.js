@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'; // umożliwia posiadanie state w komponencie funkcyjnym (np. App.js)
-import { useQuery } from "react-query";
-import { connect } from "react-redux";
+import React from 'react'; // umożliwia posiadanie state w komponencie funkcyjnym (np. App.js)
+
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,39 +10,13 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import {
-  setDictionary,
-  setCategories,
-} from "./data/actions/dictionary.actions";
 import { SuspenseErrorBoundary, Searcher, DescCategories, ButtonNew, AddCandidate } from "components";
-import API from "data/fetch";
 
-const App = ({
-  setDictionary,
-  setCategories,
-}) => {
+
+const App = () => {
 
   const { t, i18n } = useTranslation();
   
-  const { data: allDictionary } = useQuery(
-    "allDictionary",
-    API.dictionary.fetchAllDictionary
-  );
-
-  useEffect(() => {
-    //zamiast useMemo, które powoduje błąd
-    setDictionary(allDictionary);
-  }, [allDictionary, setDictionary]);
-
-  const { data: allCategories } = useQuery(
-    "allCategories",
-    API.dictionary.fetchAllCategories
-  );
-
-  useEffect(() => {
-    setCategories(allCategories);
-  }, [allCategories, setCategories]);
-
   return (
     <Router>
       <div className="container tlo">
@@ -79,7 +52,4 @@ const App = ({
   );
 }
 
-export default connect(null, {
-  setDictionary,
-  setCategories,
-})(App);
+export default App;
