@@ -28,7 +28,7 @@ const Root = styled.div`
 const Content = styled.div`
     position: absolute;
     background: rgb(222, 220, 220);
-    border: 4px solid rgb(97, 219, 251);
+    border: 4px solid #5dba5d;
     opacity: 1;
     border-radius: 50%;
     animation: ${ldsEllipsis} 0.7s cubic-bezier(0, 0.2, 0.8, 1) infinite;

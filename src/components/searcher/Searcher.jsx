@@ -51,7 +51,7 @@ export const Searcher = ({ // ładuje dane ze store i wyszukuje pojecia
         </SuspenseErrorBoundary>
       </div>
       {selected && !selected.customOption ? (
-        <div className="col-6">
+        <div className="col-5">
           <Description />
         </div>
       ) : null}

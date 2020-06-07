@@ -2,19 +2,21 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { SuspenseErrorBoundary } from "components";
 import CandidateItem from "./CandidateItem.jsx";
-import FormCandidate from "./FormCandidate.jsx";
 import API from "data/fetch";
 import { useQuery } from "react-query";
 import { setSelectedCandidate } from "data/actions/dictionary.actions.js";
 
-const AddCandidate = ({
-  categories,
-  selectedCandidate,
-  setSelectedCandidate,
-}) => {
+const FormCandidate = React.lazy(() => import('./FormCandidate.jsx'));
+
+const AddCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
   const { data: candidates } = useQuery(
     "candidates",
     API.dictionary.fetchAllCandidates
+  );
+
+  const { data: categories } = useQuery(
+    "categories",
+    API.dictionary.fetchAllCategories
   );
 
   return (
@@ -33,7 +35,7 @@ const AddCandidate = ({
                 ))}
               </ul>
             </div>
-            <div className="col-2"></div>
+            <div className="col-1"></div>
             <div className="col-6">
               {selectedCandidate ? (
                 <FormCandidate onSubmit={() => console.log("AddCandidate")} />
@@ -49,7 +51,6 @@ const AddCandidate = ({
 export default connect(
   (state) => {
     return {
-      categories: state.dictionary.categories,
       selectedCandidate: state.dictionary.selectedCandidate,
     };
   },

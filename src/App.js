@@ -10,13 +10,16 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import { SuspenseErrorBoundary, Searcher, DescCategories, ButtonNew, AddCandidate } from "components";
+import { SuspenseErrorBoundary, Searcher } from "components";
+import { Button } from "@material-ui/core";
 
+const DescCategories = React.lazy(() => import('./components/descCategories'));
+const AddCandidate = React.lazy(() => import('./components/addCandidate'));
 
 const App = () => {
 
   const { t, i18n } = useTranslation();
-  
+
   return (
     <Router>
       <div className="container tlo">
@@ -24,10 +27,10 @@ const App = () => {
           <ToastContainer />
           <div>
             <div className="doPrawej">
-              <ButtonNew category={{ id: 1 }} size={100} onClick={() => i18n.changeLanguage('pl')}>pl</ButtonNew>
-              <ButtonNew category={{ id: 2 }} size={100} onClick={() => i18n.changeLanguage('en')}>en</ButtonNew>
-              <ButtonNew category={{ id: 3 }} size={100} onClick={() => i18n.changeLanguage('de')}>de</ButtonNew>
-              <ButtonNew category={{ id: 4 }} size={100} onClick={() => i18n.changeLanguage('fr')}>fr</ButtonNew>
+              <Button className="button_w" onClick={() => i18n.changeLanguage('pl')}>pl</Button>
+              <Button className="button_w" onClick={() => i18n.changeLanguage('en')}>en</Button>
+              <Button className="button_w" onClick={() => i18n.changeLanguage('de')}>de</Button>
+              <Button className="button_w" onClick={() => i18n.changeLanguage('fr')}>fr</Button>
             </div>
             <a href="/#/" className="naglowek_a">
               <h2 className="naglowek"> {t('Klasyfikacja śmieci')}</h2>
@@ -41,10 +44,14 @@ const App = () => {
             </SuspenseErrorBoundary>
           </Route>
           <Route path="/pomoc">
-            <DescCategories />
+            <SuspenseErrorBoundary>
+              <DescCategories />
+            </SuspenseErrorBoundary>
           </Route>
           <Route path="/dodajKandydata">
-            <AddCandidate />
+            <SuspenseErrorBoundary>
+              <AddCandidate />
+            </SuspenseErrorBoundary>
           </Route>
         </Switch>
       </div>

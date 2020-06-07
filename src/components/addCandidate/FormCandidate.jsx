@@ -6,7 +6,7 @@ import {
   setSelectedCandidate,
   setDictionary,
 } from "data/actions/dictionary.actions.js";
-import { Paper, Grid, Button } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import API from "data/fetch";
 
 const FormCandidate = ({
@@ -56,7 +56,7 @@ const FormCandidate = ({
       size: 12,
       field: (
         <TextField
-          rows={2}
+          rows={1}
           rowsMax={4}
           multiline
           label="Komentarz"
@@ -89,7 +89,7 @@ const FormCandidate = ({
       validate={validate}
       render={({ handleSubmit, form, submitting, pristine, values }) => (
         <form onSubmit={handleSubmit} noValidate>
-          <Paper style={{ padding: 16 }}>
+          <div className="naglowek" style={{ padding: 16 }}>
             {/* <Grid container alignItems="flex-start" spacing={2}> */}
             {formFields.map((item, idx) => (
               <Grid item xs={item.size} key={idx} className="odstep">
@@ -97,8 +97,8 @@ const FormCandidate = ({
               </Grid>
             ))}
             {/* </Grid> */}
-          </Paper>
-          <Grid item style={{ marginTop: 16 }}>
+          </div>
+          <Grid item style={{ marginTop: 24}}>
             <Button
               className="button_w"
               onClick={form.reset}
@@ -109,8 +109,15 @@ const FormCandidate = ({
             <Button className="button_w" type="submit" disabled={submitting}>
               Zatwierdź
             </Button>
+            <Button
+              color="secondary"
+              className="button_w"
+              type="button"
+            >
+              Usuń
+            </Button>
           </Grid>
-          <pre>{JSON.stringify(values, 0, 2)}</pre>
+          {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
         </form>
       )}
     />
