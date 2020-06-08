@@ -34,6 +34,11 @@
       "name": "stare pudełka",
       "id": 13,
       "categoryId": 2
+    },
+    {
+      "name": "obierki nowe",
+      "id": 15,
+      "categoryId": 2
     }
   ],
   "categories": [
@@ -71,8 +76,8 @@
   "candidates": [
     {
       "customOption": true,
-      "name": "notes",
-      "id": "new-id-2"
+      "name": "nowe obierki",
+      "id": "new-id-1"
     }
   ]
 }

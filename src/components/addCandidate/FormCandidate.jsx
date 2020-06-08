@@ -9,15 +9,13 @@ import {
 import { Grid, Button } from "@material-ui/core";
 import API from "data/fetch";
 import { useQuery } from "react-query";
-import { useHistory } from "react-router";
+import { queryCache } from 'react-query';
 
 const FormCandidate = ({
   selectedCandidate,
   setSelectedCandidate,
   setDictionary,
 }) => {
-
-  const history = useHistory();
 
   const { data: dictionary } = useQuery(
     "dictionary",
@@ -88,13 +86,13 @@ const FormCandidate = ({
     setDictionary(result);
     API.dictionary.fetchAddEpression(result);
     API.dictionary.fetchDeleteCandidate(selectedCandidate.id);
-    history.go(); // odświeża całość
+    queryCache.refetchQueries ('candidates'); //odświerza candidates
   };
 
   const handleDelete = (e) => {
     console.log({ selectedCandidate });
     API.dictionary.fetchDeleteCandidate(selectedCandidate.id);
-    history.go();
+    queryCache.refetchQueries ('candidates');
   };
 
   return (
