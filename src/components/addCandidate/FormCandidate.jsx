@@ -8,14 +8,22 @@ import {
 } from "data/actions/dictionary.actions.js";
 import { Grid, Button } from "@material-ui/core";
 import API from "data/fetch";
+import { useQuery } from "react-query";
+import { useHistory } from "react-router";
 
 const FormCandidate = ({
   selectedCandidate,
-  categories,
-  dictionary,
   setSelectedCandidate,
   setDictionary,
 }) => {
+
+  const history = useHistory();
+
+  const { data: dictionary } = useQuery(
+    "dictionary",
+    API.dictionary.fetchAllDictionary
+  );
+
   const validate = (values) => {
     const errors = {};
     if (!values.name) {
@@ -79,7 +87,14 @@ const FormCandidate = ({
 
     setDictionary(result);
     API.dictionary.fetchAddEpression(result);
-    console.log({ result });
+    API.dictionary.fetchDeleteCandidate(selectedCandidate.id);
+    history.go(); // odświeża całość
+  };
+
+  const handleDelete = (e) => {
+    console.log({ selectedCandidate });
+    API.dictionary.fetchDeleteCandidate(selectedCandidate.id);
+    history.go();
   };
 
   return (
@@ -98,7 +113,7 @@ const FormCandidate = ({
             ))}
             {/* </Grid> */}
           </div>
-          <Grid item style={{ marginTop: 24}}>
+          <Grid item style={{ marginTop: 24 }}>
             <Button
               className="button_w"
               onClick={form.reset}
@@ -113,6 +128,7 @@ const FormCandidate = ({
               color="secondary"
               className="button_w"
               type="button"
+              onClick={handleDelete}
             >
               Usuń
             </Button>
@@ -127,8 +143,6 @@ const FormCandidate = ({
 export default connect(
   (state) => {
     return {
-      categories: state.dictionary.categories,
-      dictionary: state.dictionary.dictionary,
       selectedCandidate: state.dictionary.selectedCandidate,
     };
   },

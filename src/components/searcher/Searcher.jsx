@@ -11,6 +11,7 @@ import {
 } from "../../data/actions/dictionary.actions";
 import API from "data/fetch";
 import { useQuery } from "react-query";
+import { fetchAddCandidate } from "data/fetch/dictionary.fetch";
 
 export const Searcher = ({ // ładuje dane ze store i wyszukuje pojecia
   selected,
@@ -24,6 +25,9 @@ export const Searcher = ({ // ładuje dane ze store i wyszukuje pojecia
 
   const changeSeletedId = (newId) => {
     setSelected(newId);
+    if (newId && newId.customOption) {
+      fetchAddCandidate(newId);
+    }
     console.log({newId});
   };
   // console.log({dictionary})

@@ -31,13 +31,8 @@
       "categoryId": 5
     },
     {
-      "name": "ewrwfggew",
-      "id": 7,
-      "categoryId": 1
-    },
-    {
-      "name": "ewrwfggew",
-      "id": 8,
+      "name": "stare pudełka",
+      "id": 13,
       "categoryId": 2
     }
   ],
@@ -76,13 +71,8 @@
   "candidates": [
     {
       "customOption": true,
-      "name": "ewrwfggew",
+      "name": "notes",
       "id": "new-id-2"
-    },
-    {
-      "customOption": true,
-      "name": "ewrwew",
-      "id": "new-id-1"
     }
   ]
 }
