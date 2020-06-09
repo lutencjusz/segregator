@@ -2,10 +2,10 @@ import {toast} from 'react-toastify';
 
 const notificationsMiddleware = () => next => action => {
     if (action.message && /(.*)_(SELECTED)/.test(action.type)){ //szuka wyrażenia COUNTER
-        toast(action.message
+        toast.success(action.message
             , {
                 position: "top-right",
-                autoClose: 3000,
+                autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,

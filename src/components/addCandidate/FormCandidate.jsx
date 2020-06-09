@@ -9,17 +9,24 @@ import {
 import { Grid, Button } from "@material-ui/core";
 import API from "data/fetch";
 import { useQuery } from "react-query";
-import { queryCache } from 'react-query';
+import { queryCache } from "react-query";
+import { useTranslation } from "react-i18next";
 
 const FormCandidate = ({
   selectedCandidate,
   setSelectedCandidate,
   setDictionary,
 }) => {
+  const { t, i18n } = useTranslation();
 
   const { data: dictionary } = useQuery(
     "dictionary",
     API.dictionary.fetchAllDictionary
+  );
+
+  const { data: candidates } = useQuery(
+    "candidates",
+    API.dictionary.fetchAllCandidates
   );
 
   const validate = (values) => {
@@ -37,7 +44,7 @@ const FormCandidate = ({
     {
       size: 12,
       field: (
-        <TextField label="Nazwa" name="name" margin="none" required={true} />
+        <TextField label={t("Nazwa")} name="name" margin="none" required={true} />
       ),
     },
     {
@@ -48,12 +55,12 @@ const FormCandidate = ({
           formControlProps={{ margin: "none" }}
           radioGroupProps={{ row: true }}
           data={[
-            { label: "Bio", value: "0" },
-            { label: "Gabaryty", value: "1" },
-            { label: "Papier", value: "2" },
-            { label: "Szkło", value: "3" },
-            { label: "Tworzywa sztuczne", value: "4" },
-            { label: "Zmieszane", value: "5" },
+            { label: t("Bio"), value: "0" },
+            { label: t("Gabaryty"), value: "1" },
+            { label: t("Papier"), value: "2" },
+            { label: t("Szkło"), value: "3" },
+            { label: t("Tworzywa sztuczne"), value: "4" },
+            { label: t("Zmieszane"), value: "5" },
           ]}
         />
       ),
@@ -65,7 +72,7 @@ const FormCandidate = ({
           rows={1}
           rowsMax={4}
           multiline
-          label="Komentarz"
+          label={t("Komentarz")}
           name="description"
           margin="none"
           required={false}
@@ -83,26 +90,32 @@ const FormCandidate = ({
       }).id + 1;
     result.categoryId = parseInt(e.categoryId, 10); // zamienia string na int
 
-    setDictionary(result);
+    // setDictionary(result);
     API.dictionary.fetchAddEpression(result);
     API.dictionary.fetchDeleteCandidate(selectedCandidate.id);
-    queryCache.refetchQueries ('candidates'); //odświerza candidates
+    queryCache.refetchQueries("candidates"); //odświerza candidates
+    if (candidates.length > 0) setSelectedCandidate(candidates[0]);
   };
 
   const handleDelete = (e) => {
     // console.log({ selectedCandidate });
     API.dictionary.fetchDeleteCandidate(selectedCandidate.id);
-    queryCache.refetchQueries ('candidates');
+    queryCache.refetchQueries("candidates");
+    if (candidates.length > 0) setSelectedCandidate(candidates[0]);
   };
 
   return (
     <Form
       onSubmit={onSubmit}
-      initialValues={{ 
-        name: selectedCandidate.name, 
+      initialValues={{
+        name: selectedCandidate.name,
         id: selectedCandidate.id,
-        description: selectedCandidate.description ? selectedCandidate.description: null,
-        categoryId: selectedCandidate.categoryId ? (selectedCandidate.categoryId.toString()): undefined,
+        description: selectedCandidate.description
+          ? selectedCandidate.description
+          : undefined,
+        categoryId: selectedCandidate.categoryId
+          ? selectedCandidate.categoryId.toString()
+          : undefined,
       }}
       validate={validate}
       render={({ handleSubmit, form, submitting, pristine, values }) => (
@@ -122,10 +135,10 @@ const FormCandidate = ({
               onClick={form.reset}
               disabled={submitting || pristine}
             >
-              Resetuj
+              {t("Resetuj")}
             </Button>
             <Button className="button_w" type="submit" disabled={submitting}>
-              Zatwierdź
+              {t("Zatwierdź")}
             </Button>
             <Button
               color="secondary"
@@ -133,7 +146,7 @@ const FormCandidate = ({
               type="button"
               onClick={handleDelete}
             >
-              Usuń
+              {t("Usuń")}
             </Button>
           </Grid>
           {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}

@@ -13,6 +13,7 @@ const queryConfig = {
   suspense: true,
   retry: 2, // ilość prób powtórzenia na 2
   refetchAllOnWindowFocus: false, // blokuje ponowne pobieranie danych po przełączneniu na inne okno
+  setTimeout: 100
 }
 
 ReactDOM.render(
