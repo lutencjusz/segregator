@@ -55,7 +55,11 @@ export const setSelected = (selected) => {
         objResult.message = `Nie znalazłem "${objResult.payload.name}" w słowniku. Zgłosiłem nową wpis...`
     }
 
+    if (objResult.payload?.modifiedCategory) {
+        objResult.message = `Zgłosiłem zmianę kategorii "${objResult.payload.name}"...`
+    }
 
-    // console.log({ objResult })
+
+    console.log({ objResult })
     return objResult;
 }

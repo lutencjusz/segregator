@@ -3,14 +3,13 @@ import { connect } from "react-redux";
 import { Drop } from "../dragDrop";
 import Swal from "sweetalert2";
 import { LoadingIndicator } from "components";
-import { setSelectedCategories } from "data/actions/dictionary.actions";
+import { setSelectedCategories, setSelected } from "data/actions/dictionary.actions";
 import { useHistory } from "react-router";
 import ButtonNew from "../buttonNew";
 import API from "data/fetch";
 import { useQuery } from "react-query";
 
-const Trashes = ({ setSelectedCategories, selected }) => {
-
+const Trashes = ({ setSelectedCategories, setSelected, selected }) => {
   const { data: categories } = useQuery(
     "categories",
     API.dictionary.fetchAllCategories
@@ -28,16 +27,25 @@ const Trashes = ({ setSelectedCategories, selected }) => {
         cancelButtonText: "Rezygnuję",
         confirmButtonText: "Zmień kategorię",
       }).then((result) => {
-        console.log({ result });
+        const newCategory = {
+          name: selected.name,
+          id: selected.id,
+          categoryId,
+          description: result.value,
+          modifiedCategory: true
+        }
+        setSelected(newCategory);
+        API.dictionary.fetchAddCandidate(newCategory);
+        console.log({ newCategory });
       });
     }
   };
 
   const { push } = useHistory();
-  
+
   const pushButton = (newCategory) => {
-    setSelectedCategories(newCategory)
-    push('/pomoc');
+    setSelectedCategories(newCategory);
+    push("/pomoc");
   };
 
   return (
@@ -45,7 +53,11 @@ const Trashes = ({ setSelectedCategories, selected }) => {
       {categories
         ? categories.map((category) => (
             <Drop key={category.id} onDrop={(id) => getSelected(category.id)}>
-              <ButtonNew category={category} size={100} onClick={() => pushButton(category.id)}/>
+              <ButtonNew
+                category={category}
+                size={100}
+                onClick={() => pushButton(category.id)}
+              />
             </Drop>
           ))
         : null}
@@ -60,6 +72,6 @@ export default connect(
     };
   },
   {
-    setSelectedCategories,
+    setSelectedCategories, setSelected,
   }
 )(Trashes);

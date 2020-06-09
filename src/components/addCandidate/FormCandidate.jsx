@@ -90,7 +90,7 @@ const FormCandidate = ({
   };
 
   const handleDelete = (e) => {
-    console.log({ selectedCandidate });
+    // console.log({ selectedCandidate });
     API.dictionary.fetchDeleteCandidate(selectedCandidate.id);
     queryCache.refetchQueries ('candidates');
   };
@@ -98,7 +98,12 @@ const FormCandidate = ({
   return (
     <Form
       onSubmit={onSubmit}
-      initialValues={{ name: selectedCandidate.name, id: selectedCandidate.id }}
+      initialValues={{ 
+        name: selectedCandidate.name, 
+        id: selectedCandidate.id,
+        description: selectedCandidate.description ? selectedCandidate.description: null,
+        categoryId: selectedCandidate.categoryId ? (selectedCandidate.categoryId.toString()): undefined,
+      }}
       validate={validate}
       render={({ handleSubmit, form, submitting, pristine, values }) => (
         <form onSubmit={handleSubmit} noValidate>

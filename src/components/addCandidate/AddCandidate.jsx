@@ -37,8 +37,8 @@ const AddCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
             </div>
             <div className="col-1"></div>
             <div className="col-6">
-              {selectedCandidate ? (
-                <FormCandidate onSubmit={() => console.log("AddCandidate")} />
+              {selectedCandidate && candidates.length>0 ? (
+                <FormCandidate />
               ) : null}
             </div>
           </div>

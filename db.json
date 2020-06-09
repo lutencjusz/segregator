@@ -39,6 +39,17 @@
       "name": "obierki nowe",
       "id": 15,
       "categoryId": 2
+    },
+    {
+      "name": "papier używany",
+      "id": 16,
+      "categoryId": 5
+    },
+    {
+      "name": "obierki",
+      "id": 17,
+      "description": "Bo nie lubię",
+      "categoryId": 4
     }
   ],
   "categories": [
@@ -73,11 +84,5 @@
       "image": "https://lutencjusz-segregator.s3-eu-west-1.amazonaws.com/zmieszne.png"
     }
   ],
-  "candidates": [
-    {
-      "customOption": true,
-      "name": "nowe obierki",
-      "id": "new-id-1"
-    }
-  ]
+  "candidates": []
 }
