@@ -17,16 +17,11 @@ const FormCandidate = ({
   setSelectedCandidate,
   setDictionary,
 }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const { data: dictionary } = useQuery(
     "dictionary",
     API.dictionary.fetchAllDictionary
-  );
-
-  const { data: candidates } = useQuery(
-    "candidates",
-    API.dictionary.fetchAllCandidates
   );
 
   const validate = (values) => {
@@ -44,7 +39,12 @@ const FormCandidate = ({
     {
       size: 12,
       field: (
-        <TextField label={t("Nazwa")} name="name" margin="none" required={true} />
+        <TextField
+          label={t("Nazwa")}
+          name="name"
+          margin="none"
+          required={true}
+        />
       ),
     },
     {
@@ -93,15 +93,30 @@ const FormCandidate = ({
     // setDictionary(result);
     API.dictionary.fetchAddEpression(result);
     API.dictionary.fetchDeleteCandidate(selectedCandidate.id);
-    queryCache.refetchQueries("candidates"); //odświerza candidates
-    if (candidates.length > 0) setSelectedCandidate(candidates[0]);
+    queryCache.refetchQueries("candidates").then((candidates) => {
+      console.log({candidates})
+      if (candidates.length > 0) setSelectedCandidate(candidates[0][0]);
+    })
   };
 
-  const handleDelete = (e) => {
+  const handleDelete = async (e) => {
     // console.log({ selectedCandidate });
-    API.dictionary.fetchDeleteCandidate(selectedCandidate.id);
-    queryCache.refetchQueries("candidates");
-    if (candidates.length > 0) setSelectedCandidate(candidates[0]);
+    API.dictionary
+      .fetchDeleteCandidate(selectedCandidate.id)
+      .then(function (defs) {
+        // żeby pobrać wartości promise
+        if (defs.status) {
+          console.log({defs})
+          // window.location.reload(false);
+        } else {
+          console.log({defs})
+          queryCache.refetchQueries("candidates").then((candidates) => {
+            console.log({candidates})
+            if (candidates.length > 0) setSelectedCandidate(candidates[0][0]);
+          })
+          
+        }
+      });
   };
 
   return (

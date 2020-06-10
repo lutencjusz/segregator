@@ -86,6 +86,12 @@
       "name": "papier b",
       "id": 24,
       "categoryId": 1
+    },
+    {
+      "name": "papier",
+      "id": 25,
+      "description": "rrr",
+      "categoryId": 2
     }
   ],
   "categories": [
@@ -120,13 +126,5 @@
       "image": "https://lutencjusz-segregator.s3-eu-west-1.amazonaws.com/zmieszne.png"
     }
   ],
-  "candidates": [
-    {
-      "name": "papier",
-      "id": 1,
-      "categoryId": 4,
-      "description": "asdd",
-      "modifiedCategory": true
-    }
-  ]
+  "candidates": []
 }

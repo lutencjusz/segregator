@@ -8,6 +8,7 @@ import { useHistory } from "react-router";
 import ButtonNew from "../buttonNew";
 import API from "data/fetch";
 import { useQuery } from "react-query";
+import {toast} from 'react-toastify';
 
 const Trashes = ({ setSelectedCategories, setSelected, selected }) => {
   const { data: categories } = useQuery(
@@ -34,9 +35,23 @@ const Trashes = ({ setSelectedCategories, setSelected, selected }) => {
           description: result.value,
           modifiedCategory: true
         }
-        setSelected(newCategory);
-        API.dictionary.fetchAddCandidate(newCategory);
-        console.log({ newCategory });
+        API.dictionary.fetchAddCandidate(newCategory).then(function (defs){ // żeby pobrać wartości promise
+          if(defs.status !== 'error') {
+            setSelected(newCategory);
+          } else {
+            toast.error(`Pojęcie "${newCategory.name}" oczekuje na rozpatrzenie!!!`
+              , {
+                  position: "top-right",
+                  autoClose: 2000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  }
+              );
+          }
+        });
       });
     }
   };
