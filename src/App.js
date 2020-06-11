@@ -11,7 +11,6 @@ import {
   Route,
 } from 'react-router-dom';
 import { SuspenseErrorBoundary, Searcher } from "components";
-import { Button } from "@material-ui/core";
 
 const DescCategories = React.lazy(() => import('./components/descCategories'));
 const AddCandidate = React.lazy(() => import('./components/addCandidate'));
@@ -27,10 +26,11 @@ const App = () => {
           <ToastContainer />
           <div>
             <div className="doPrawej">
-              <Button className="button_w" onClick={() => i18n.changeLanguage('pl')}>pl</Button>
-              <Button className="button_w" onClick={() => i18n.changeLanguage('en')}>en</Button>
-              <Button className="button_w" onClick={() => i18n.changeLanguage('de')}>de</Button>
-              <Button className="button_w" onClick={() => i18n.changeLanguage('fr')}>fr</Button>
+              <button className="button_w" onClick={() => i18n.changeLanguage('pl')}>pl</button>
+              <button className="button_w" onClick={() => i18n.changeLanguage('en')}>en</button>
+              <button className="button_w" onClick={() => i18n.changeLanguage('de')}>de</button>
+              <button className="button_w" onClick={() => i18n.changeLanguage('fr')}>fr</button>
+              <button className="button_w" onClick={() => i18n.changeLanguage('zh-CN')}>ch</button>
             </div>
             <a href="/#/" className="naglowek_a">
               <h2 className="naglowek"> {t('Klasyfikacja śmieci')}</h2>

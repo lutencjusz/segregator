@@ -6,7 +6,7 @@ import API from "data/fetch";
 import { useQuery } from "react-query";
 import { setSelectedCandidate } from "data/actions/dictionary.actions.js";
 
-const FormCandidate = React.lazy(() => import('./FormCandidate.jsx'));
+const FormCandidate = React.lazy(() => import("./FormCandidate.jsx"));
 
 const AddCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
   const { data: candidates } = useQuery(
@@ -24,23 +24,37 @@ const AddCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
       {categories && candidates ? (
         <Fragment>
           <div className="row odstep">
-            <div className="col-2">
-              <ul className="list-group list-group-flush">
-                {candidates.map((item) => (
-                  <CandidateItem
-                    key={item.id}
-                    item={item}
-                    onClick={() => setSelectedCandidate(item)}
-                  />
-                ))}
-              </ul>
-            </div>
-            <div className="col-1"></div>
-            <div className="col-6">
-              {selectedCandidate && candidates.length>0 ? (
-                <FormCandidate />
-              ) : null}
-            </div>
+            {selectedCandidate && candidates.length > 0 ? (
+              <Fragment>
+                <div className="col-2 doLewej">
+                  {/* <ul className="list-group list-group-flush active"> */}
+                    {candidates.map((item) => (
+                      <CandidateItem
+                        key={item.id}
+                        item={item}
+                        onClick={() => setSelectedCandidate(item)}
+                      />
+                    ))}
+                  {/* </ul> */}
+                </div>
+                <div className="col-1" />
+                <div className="col-6">
+                  <FormCandidate />
+                </div>
+              </Fragment>
+            ) : (
+              <div className="col-12">
+                {/* <ul className="list-group list-group-flush active"> */}
+                  {candidates.map((item) => (
+                    <CandidateItem
+                      key={item.id}
+                      item={item}
+                      onClick={() => setSelectedCandidate(item)}
+                    />
+                  ))}
+                {/* </ul> */}
+              </div>
+            )}
           </div>
         </Fragment>
       ) : null}

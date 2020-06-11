@@ -26,6 +26,10 @@ code {
   text-align: right;
 }
 
+.doLewej {
+  text-align: left;
+}
+
 .tlo {
   padding-top: 15px;
   padding-bottom: 30px;
@@ -33,7 +37,12 @@ code {
 }
 
 .button_w {
-  color: white;
+  color: black;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  max-width: 10rem;
   text-shadow: 0 1px 1px #6dd96d;
   margin: 15px;
   border: none;
@@ -41,6 +50,10 @@ code {
   background: #80ff80;
   transition-duration: 0.4s;
   box-shadow: 10px 10px 50px #6dd96d, -10px -10px 50px #93ff93;
+}
+
+.button_w_red {
+  color: red;
 }
 
 .button_w:hover {

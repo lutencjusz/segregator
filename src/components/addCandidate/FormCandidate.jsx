@@ -6,7 +6,7 @@ import {
   setSelectedCandidate,
   setDictionary,
 } from "data/actions/dictionary.actions.js";
-import { Grid, Button } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import API from "data/fetch";
 import { useQuery } from "react-query";
 import { queryCache } from "react-query";
@@ -27,10 +27,10 @@ const FormCandidate = ({
   const validate = (values) => {
     const errors = {};
     if (!values.name) {
-      errors.name = "Wprowadź nazwę!";
+      errors.name = t("Wprowadź nazwę!");
     }
     if (!values.categoryId) {
-      errors.categoryId = "Wybierz kategorię!";
+      errors.categoryId = t("Wybierz kategorię!");
     }
     return errors;
   };
@@ -144,25 +144,25 @@ const FormCandidate = ({
             ))}
             {/* </Grid> */}
           </div>
-          <Grid item style={{ marginTop: 24 }}>
-            <Button
+          <Grid item style={{ marginTop: 12 }}>
+            <button
               className="button_w"
               onClick={form.reset}
               disabled={submitting || pristine}
             >
               {t("Resetuj")}
-            </Button>
-            <Button className="button_w" type="submit" disabled={submitting}>
+            </button>
+            <button className="button_w" type="submit" disabled={submitting}>
               {t("Zatwierdź")}
-            </Button>
-            <Button
+            </button>
+            <button
               color="secondary"
-              className="button_w"
+              className="button_w button_w_red"
               type="button"
               onClick={handleDelete}
             >
               {t("Usuń")}
-            </Button>
+            </button>
           </Grid>
           {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
         </form>
