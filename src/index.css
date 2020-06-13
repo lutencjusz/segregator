@@ -101,7 +101,12 @@ code {
 
 .naglowek div:hover {
   transition-duration: 0.4s;
-  transform: scale(1.02);
+  transform: scale(1.001);
+}
+
+.naglowek .tytul:hover {
+  transition-duration: 0.4s;
+  transform: scale(1.01);
 }
 
 .naglowek_a:hover {
