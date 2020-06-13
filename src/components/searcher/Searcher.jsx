@@ -39,6 +39,7 @@ export const Searcher = ({ // ładuje dane ze store i wyszukuje pojecia
             <Fragment>
               <Drag data={"1"}>
                 <Typeahead
+                  className="custom-typeahead"
                   id="my-typeahead-id"
                   // defaultInputValue = "Wprowadź poszukawane hasło"
                   onChange={(selected) => changeSeletedId(selected[0])} // zapisuje tylko pierwszy wybrany

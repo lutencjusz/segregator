@@ -1,3 +1,13 @@
+@keyframes blackToBlue {
+  from {color: black;}
+  to {color: blue;}
+}
+
+@keyframes thinToBold {
+  from {border-bottom: 0.5px solid black;}
+  to {border-bottom: 2px solid black;;}
+}
+
 body {
   margin: 0px;
   text-align: center;
@@ -58,7 +68,7 @@ code {
 
 .button_w:hover {
   box-shadow: 10px 10px 50px #6dd96d, -10px -10px 50px #93ff93;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .button_w:active {
@@ -86,8 +96,53 @@ code {
   background: #80ff80;
   box-shadow: inset 4px 4px 12px #5dba5d, inset -3px -3px 12px #a3ffa3;
   text-shadow: 0 1px 1px #5dba5d;
+  transition-duration: 0.4s;
+}
+
+.naglowek div:hover {
+  transition-duration: 0.4s;
+  transform: scale(1.02);
 }
 
 .naglowek_a:hover {
   text-decoration: none;
 }
+
+.custom-typeahead .form-control {
+  background-color: #80ff80;
+  border: none;
+  border-bottom: 0.5px solid black;
+}
+
+.custom-typeahead .form-control:hover {
+  animation-name: thinToBold;
+  animation-duration: 100ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  border-bottom: 2px solid black;
+  color: black;
+}
+
+.custom-typeahead .form-control:focus {
+  background-color: #80ff80;
+  box-shadow: none;
+  animation-name: blackToBlue;
+  animation-duration: 100ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  border-bottom: 2px solid blue;
+}
+
+.custom-typeahead .dropdown-item:focus,
+.dropdown-item:hover {
+  background-color: #80ff80;
+}
+
+.custom-typeahead .dropdown-menu {
+  background-color: #80ff80;
+}
+
+.custom-typeahead .dropdown-item.hover{
+  background-color: #5dba5d
+}
+
