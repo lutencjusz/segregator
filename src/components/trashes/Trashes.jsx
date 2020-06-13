@@ -3,12 +3,15 @@ import { connect } from "react-redux";
 import { Drop } from "../dragDrop";
 import Swal from "sweetalert2";
 import { LoadingIndicator } from "components";
-import { setSelectedCategories, setSelected } from "data/actions/dictionary.actions";
+import {
+  setSelectedCategories,
+  setSelected,
+} from "data/actions/dictionary.actions";
 import { useHistory } from "react-router";
 import ButtonNew from "../buttonNew";
 import API from "data/fetch";
 import { useQuery } from "react-query";
-import {toast} from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Trashes = ({ setSelectedCategories, setSelected, selected }) => {
   const { data: categories } = useQuery(
@@ -28,19 +31,23 @@ const Trashes = ({ setSelectedCategories, setSelected, selected }) => {
         cancelButtonText: "Rezygnuję",
         confirmButtonText: "Zmień kategorię",
       }).then((result) => {
-        const newCategory = {
-          name: selected.name,
-          id: selected.id,
-          categoryId,
-          description: result.value,
-          modifiedCategory: true
-        }
-        API.dictionary.fetchAddCandidate(newCategory).then(function (defs){ // żeby pobrać wartości promise
-          if(defs.status !== 'error') {
-            setSelected(newCategory);
-          } else {
-            toast.error(`Pojęcie "${newCategory.name}" oczekuje na rozpatrzenie!!!`
-              , {
+        console.log({ result });
+        if (result.isConfirmed) {
+          const newCategory = {
+            name: selected.name,
+            id: selected.id,
+            categoryId,
+            description: result.value,
+            modifiedCategory: true,
+          };
+          API.dictionary.fetchAddCandidate(newCategory).then(function (defs) {
+            // żeby pobrać wartości promise
+            if (defs.status !== "error") {
+              setSelected(newCategory);
+            } else {
+              toast.error(
+                `Pojęcie "${newCategory.name}" oczekuje na rozpatrzenie!!!`,
+                {
                   position: "top-right",
                   autoClose: 2000,
                   hideProgressBar: false,
@@ -48,10 +55,11 @@ const Trashes = ({ setSelectedCategories, setSelected, selected }) => {
                   pauseOnHover: true,
                   draggable: true,
                   progress: undefined,
-                  }
+                }
               );
-          }
-        });
+            }
+          });
+        }
       });
     }
   };
@@ -87,6 +95,7 @@ export default connect(
     };
   },
   {
-    setSelectedCategories, setSelected,
+    setSelectedCategories,
+    setSelected,
   }
 )(Trashes);

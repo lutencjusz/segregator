@@ -24,7 +24,7 @@ const AddCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
       {categories && candidates ? (
         <Fragment>
           <div className="row odstep">
-            {selectedCandidate && candidates.length > 0 ? (
+            {selectedCandidate ? (
               <Fragment>
                 <div className="col-2 doLewej">
                   {/* <ul className="list-group list-group-flush active"> */}

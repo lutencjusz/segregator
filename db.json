@@ -44,6 +44,41 @@
       "name": "zużyta chusteczka",
       "id": 30,
       "categoryId": 5
+    },
+    {
+      "name": "ser",
+      "id": 31,
+      "categoryId": 0
+    },
+    {
+      "name": "ser biały",
+      "id": 32,
+      "categoryId": 0
+    },
+    {
+      "name": "ser zółty",
+      "id": 33,
+      "categoryId": 0
+    },
+    {
+      "name": "słoik po majoniezie",
+      "id": 34,
+      "categoryId": 3
+    },
+    {
+      "name": "słoik po majonezie",
+      "id": 35,
+      "categoryId": 0
+    },
+    {
+      "name": "stary telewizor",
+      "id": 36,
+      "categoryId": 1
+    },
+    {
+      "name": "lokówka",
+      "id": 37,
+      "categoryId": 4
     }
   ],
   "categories": [

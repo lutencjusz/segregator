@@ -11,17 +11,22 @@ import API from "data/fetch";
 import { useQuery } from "react-query";
 import { queryCache } from "react-query";
 import { useTranslation } from "react-i18next";
+import { Drop } from "../dragDrop";
 
 const FormCandidate = ({
   selectedCandidate,
   setSelectedCandidate,
-  setDictionary,
 }) => {
   const { t } = useTranslation();
 
   const { data: dictionary } = useQuery(
     "dictionary",
     API.dictionary.fetchAllDictionary
+  );
+
+  const { data: candidates } = useQuery(
+    "candidates",
+    API.dictionary.fetchAllCandidates
   );
 
   const validate = (values) => {
@@ -120,6 +125,7 @@ const FormCandidate = ({
   };
 
   return (
+    <Drop onDrop={(id) => setSelectedCandidate(candidates[id])}>
     <Form
       onSubmit={onSubmit}
       initialValues={{
@@ -168,6 +174,7 @@ const FormCandidate = ({
         </form>
       )}
     />
+    </Drop>
   );
 };
 

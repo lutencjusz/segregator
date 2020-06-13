@@ -28,7 +28,7 @@ export const Searcher = ({ // ładuje dane ze store i wyszukuje pojecia
     if (newId && newId.customOption) {
       fetchAddCandidate(newId);
     }
-    console.log({newId});
+    console.log(`changeSelectedId: ${newId}`);
   };
   // console.log({dictionary})
   return (
@@ -37,7 +37,7 @@ export const Searcher = ({ // ładuje dane ze store i wyszukuje pojecia
         <SuspenseErrorBoundary>
           {dictionary ? (
             <Fragment>
-              <Drag data={"1"}>
+              <Drag data={selected}>
                 <Typeahead
                   className="custom-typeahead"
                   id="my-typeahead-id"
