@@ -33,7 +33,7 @@ const App = () => {
               <button className="button_w" onClick={() => i18n.changeLanguage('zh-CN')}>ch</button>
             </div>
             <a href="/#/" className="naglowek_a">
-              <h2 className="naglowek"><div className="tytul">{t('Klasyfikacja odpadków')}</div></h2>
+              <h2 className="naglowek"><div className="tytul">{t("Klasyfikacja odpadków")}</div></h2>
             </a>
           </div>
         </div>

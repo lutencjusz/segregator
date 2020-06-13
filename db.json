@@ -78,11 +78,5 @@
       "image": "https://lutencjusz-segregator.s3-eu-west-1.amazonaws.com/zmieszne.png"
     }
   ],
-  "candidates": [
-    {
-      "customOption": true,
-      "name": "papier dsfsdfsdf",
-      "id": "new-id-1"
-    }
-  ]
+  "candidates": []
 }
