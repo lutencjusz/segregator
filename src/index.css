@@ -8,20 +8,10 @@
   to {border-bottom: 2px solid black;;}
 }
 
-body {
-  margin: 0px;
-  text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
+} */
 
 .media-body {
   text-align: left;
@@ -34,6 +24,8 @@ code {
 
 .doPrawej {
   text-align: right;
+  display: grid;
+  grid-template-columns: 1fr 7fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .doLewej {
@@ -47,6 +39,7 @@ code {
 }
 
 .button_w {
+  font-size: 1rem;
   color: black;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
@@ -153,4 +146,9 @@ code {
 
 .swal2-popup {
   background-color: #80ff80;
+}
+
+#animaton svg {
+  width: 50px;
+  height: 50px;
 }
