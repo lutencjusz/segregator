@@ -7,3 +7,4 @@ export { default as LoadingIndicator } from './loadingIndicator';
 export { default as DescCategories } from './descCategories';
 export { default as ButtonNew } from './buttonNew';
 export { default as AddCandidate } from './addCandidate';
+export { default as Message } from './message';

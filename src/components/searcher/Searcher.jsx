@@ -41,9 +41,8 @@ export const Searcher = ({ // ładuje dane ze store i wyszukuje pojecia
                 <Typeahead
                   className="custom-typeahead"
                   id="my-typeahead-id"
-                  // defaultInputValue = "Wprowadź poszukawane hasło"
                   onChange={(selected) => changeSeletedId(selected[0])} // zapisuje tylko pierwszy wybrany
-                  labelKey="name"
+                  labelKey='name'
                   options={dictionary}
                   allowNew={true}
                   newSelectionPrefix="Nowy wybór: "

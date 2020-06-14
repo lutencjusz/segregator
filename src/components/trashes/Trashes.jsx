@@ -11,7 +11,7 @@ import { useHistory } from "react-router";
 import ButtonNew from "../buttonNew";
 import API from "data/fetch";
 import { useQuery } from "react-query";
-import { toast } from "react-toastify";
+import { Message } from "components";
 
 const Trashes = ({ setSelectedCategories, setSelected, selected }) => {
   const { data: categories } = useQuery(
@@ -45,17 +45,9 @@ const Trashes = ({ setSelectedCategories, setSelected, selected }) => {
             if (defs.status !== "error") {
               setSelected(newCategory);
             } else {
-              toast.error(
-                `Pojęcie "${newCategory.name}" oczekuje na rozpatrzenie!!!`,
-                {
-                  position: "top-right",
-                  autoClose: 2000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                }
+              Message(
+                `Pojęcie "${newCategory.name}" już oczekuje na rozpatrzenie!!!`,
+                "error"
               );
             }
           });

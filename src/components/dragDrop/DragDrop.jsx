@@ -16,7 +16,7 @@ export const Drag = ({data, image, children}) => {
 
     }
 
-    return <div draggable={true} onDragStart={onDragStart}>{children}</div>;
+    return <span draggable={true} onDragStart={onDragStart}>{children}</span>;
 }
 
 export const Drop = (props) => {

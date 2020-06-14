@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { LoadingIndicator } from 'components';
 import './SuspenseErrorBoundary.css'
-import { Button } from "@material-ui/core";
 
 class SuspenseErrorBoundary extends React.Component {
 
@@ -30,8 +29,8 @@ class SuspenseErrorBoundary extends React.Component {
     return <React.Suspense fallback={<LoadingIndicator />}>
       {this.state.hasError ? (
         <div>
-          <h4>Coś poszło nie tak...</h4>
-          <Button variant="contained" color="secondary" className="button_w" onClick={() => this.tryAgain()}>Spróbuj jeszcze raz</Button>
+          <h4>Nie mogę pobrać danych...</h4>
+          <button className="button_w button_w_red" onClick={() => this.tryAgain()}>Spróbuj jeszcze raz</button>
         </div>
       ) : (
           <Fragment>

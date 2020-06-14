@@ -12,11 +12,9 @@ import { useQuery } from "react-query";
 import { queryCache } from "react-query";
 import { useTranslation } from "react-i18next";
 import { Drop } from "../dragDrop";
+import Message from "../message";
 
-const FormCandidate = ({
-  selectedCandidate,
-  setSelectedCandidate,
-}) => {
+const FormCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
   const { t } = useTranslation();
 
   const { data: dictionary } = useQuery(
@@ -86,94 +84,114 @@ const FormCandidate = ({
     },
   ];
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     const result = e;
     result.id =
-      dictionary.reduce(function (prev, current) {
+      (await dictionary.reduce(function (prev, current) {
         // znajduje max
         return prev.id > current.id ? prev : current;
-      }).id + 1;
+      }).id) + 1;
     result.categoryId = parseInt(e.categoryId, 10); // zamienia string na int
 
     // setDictionary(result);
-    API.dictionary.fetchAddEpression(result);
-    API.dictionary.fetchDeleteCandidate(selectedCandidate.id);
-    queryCache.refetchQueries("candidates").then((candidates) => {
-      console.log({candidates})
-      if (candidates.length > 0) setSelectedCandidate(candidates[0][0]);
-    })
+    await API.dictionary
+      .fetchDeleteCandidate(selectedCandidate.id)
+      .catch(() => 
+        Message(
+          `Próba usunięcia ${selectedCandidate.name} z listy kandydatów nie udała się!`,
+          "error"
+        )
+      )
+      .then(() => {
+        API.dictionary
+          .fetchAddEpression(result)
+          .catch(() =>
+            Message(
+              `Próba dodania ${selectedCandidate.name} do słownika nie udała się!`,
+              "error"
+            )
+          )
+          .then(() => Message(`Dodano ${selectedCandidate.name} do słownika`));
+      });
+    await queryCache.refetchQueries("candidates").then((candidates) => {
+      // console.log({ candidates });
+      if (candidates && candidates.length > 0) {
+        setSelectedCandidate(candidates[0][0]);
+      } else {
+        setSelectedCandidate(undefined);
+      }
+    });
+    await queryCache.refetchQueries("dictionary");
   };
 
   const handleDelete = async (e) => {
     // console.log({ selectedCandidate });
-    API.dictionary
+    await API.dictionary
       .fetchDeleteCandidate(selectedCandidate.id)
       .then(function (defs) {
         // żeby pobrać wartości promise
         if (defs.status) {
-          console.log({defs})
-          // window.location.reload(false);
+          console.log({ defs });
         } else {
-          console.log({defs})
+          console.log({ defs });
           queryCache.refetchQueries("candidates").then((candidates) => {
-            console.log({candidates})
+            console.log({ candidates });
             if (candidates.length > 0) setSelectedCandidate(candidates[0][0]);
-          })
-          
+          });
         }
       });
   };
 
   return (
     <Drop onDrop={(id) => setSelectedCandidate(candidates[id])}>
-    <Form
-      onSubmit={onSubmit}
-      initialValues={{
-        name: selectedCandidate.name,
-        id: selectedCandidate.id,
-        description: selectedCandidate.description
-          ? selectedCandidate.description
-          : undefined,
-        categoryId: selectedCandidate.categoryId
-          ? selectedCandidate.categoryId.toString()
-          : undefined,
-      }}
-      validate={validate}
-      render={({ handleSubmit, form, submitting, pristine, values }) => (
-        <form onSubmit={handleSubmit} noValidate>
-          <div className="naglowek" style={{ padding: 16 }}>
-            {/* <Grid container alignItems="flex-start" spacing={2}> */}
-            {formFields.map((item, idx) => (
-              <Grid item xs={item.size} key={idx} className="odstep">
-                {item.field}
-              </Grid>
-            ))}
-            {/* </Grid> */}
-          </div>
-          <Grid item style={{ marginTop: 12 }}>
-            <button
-              className="button_w"
-              onClick={form.reset}
-              disabled={submitting || pristine}
-            >
-              {t("Resetuj")}
-            </button>
-            <button className="button_w" type="submit" disabled={submitting}>
-              {t("Zatwierdź")}
-            </button>
-            <button
-              color="secondary"
-              className="button_w button_w_red"
-              type="button"
-              onClick={handleDelete}
-            >
-              {t("Usuń")}
-            </button>
-          </Grid>
-          {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
-        </form>
-      )}
-    />
+      <Form
+        onSubmit={onSubmit}
+        initialValues={{
+          name: selectedCandidate.name,
+          id: selectedCandidate.id,
+          description: selectedCandidate.description
+            ? selectedCandidate.description
+            : undefined,
+          categoryId: selectedCandidate.categoryId
+            ? selectedCandidate.categoryId.toString()
+            : undefined,
+        }}
+        validate={validate}
+        render={({ handleSubmit, form, submitting, pristine, values }) => (
+          <form onSubmit={handleSubmit} noValidate>
+            <div className="naglowek" style={{ padding: 16 }}>
+              {/* <Grid container alignItems="flex-start" spacing={2}> */}
+              {formFields.map((item, idx) => (
+                <Grid item xs={item.size} key={idx} className="odstep">
+                  {item.field}
+                </Grid>
+              ))}
+              {/* </Grid> */}
+            </div>
+            <Grid item style={{ marginTop: 12 }}>
+              <button
+                className="button_w"
+                onClick={form.reset}
+                disabled={submitting || pristine}
+              >
+                {t("Resetuj")}
+              </button>
+              <button className="button_w" type="submit" disabled={submitting}>
+                {t("Zatwierdź")}
+              </button>
+              <button
+                color="secondary"
+                className="button_w button_w_red"
+                type="button"
+                onClick={handleDelete}
+              >
+                {t("Usuń")}
+              </button>
+            </Grid>
+            {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
+          </form>
+        )}
+      />
     </Drop>
   );
 };
