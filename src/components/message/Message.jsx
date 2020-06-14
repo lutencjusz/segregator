@@ -2,6 +2,7 @@ import {toast} from 'react-toastify';
 
 const Message = (message, status = "success") => {
     const properties = {
+      style: {fontSize: 14},
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
