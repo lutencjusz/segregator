@@ -1,21 +1,25 @@
 export const fetchAllDictionary = async () => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/dictionary`);
+  const response = await fetch(`${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/table?name="dictionary"`);
+  //const response = await fetch(`${process.env.REACT_APP_API_URL}/dictionary`);
   // umozliwia pobranie budżetu i jego transakcji
   const data = await response.json();
   return data; // zwraca zartość, a nie promise
 };
 
 export const fetchAllCategories = async () => {
-  const response = await fetch(
-    `${process.env.REACT_APP_API_URL}/categories`
-  ).catch((err) => console.log(err));
+  // const response = await fetch(
+  //   //`${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/table?name="categories"`, {
+  //   `${process.env.REACT_APP_API_URL}/categories`)
+  const response = await fetch(`${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/table?name="categories"`)
+    .catch((err) => console.log(err));
 
   const data = await response.json();
   return data; // zwraca zartość, a nie promise
 };
 
 export const fetchAllCandidates = async () => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/candidates`, {
+  // const response = await fetch(`${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/table?name="candidates"`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/table?name="candidates"`, {
     heareds: { Pragma: "no-cache" },
   });
   // umozliwia pobranie budżetu i jego transakcji
