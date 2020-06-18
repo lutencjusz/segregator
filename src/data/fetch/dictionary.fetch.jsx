@@ -30,14 +30,15 @@ export const fetchAllCandidates = async () => {
 export const fetchAddCandidate = async (data) => {
   // jeżeli przekazuje obiekt, to kolejność mnie nie interesuje
   // dostosowanie wyniku [] do useMutaion
-  //   console.log({ data });
+  console.log({ data });
   let res = "";
-  await fetch(`${process.env.REACT_APP_API_URL}/candidates`, {
+  // await fetch(`${process.env.REACT_APP_API_URL}/candidates`, {
+  await fetch(`${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/candidate`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Request-Origin": `${process.env.REACT_APP_API_URL}`,
-      "Access-Control-Allow-Credentials": "true",
+      // "Access-Control-Request-Origin": `${process.env.REACT_APP_API_URL_AMZ}`,
+      // "Access-Control-Allow-Credentials": "true",
       //   "Access-Control-Request-Method": "All",
       //   "Access-Control-Request-Headers": "Content-Type, Authorization",
     },

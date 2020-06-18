@@ -12,6 +12,8 @@ const DescCategories = ({ selectedCategories }) => {
     API.dictionary.fetchAllCategories
   );
 
+  const obj = categories.find(category => category.id === selectedCategories)
+
   return (
     <SuspenseErrorBoundary>
       {categories ? (
@@ -24,17 +26,17 @@ const DescCategories = ({ selectedCategories }) => {
             <div className="col-8">
               <div className="media">
                 <img
-                  src={categories[selectedCategories].image}
+                  src={obj.image}
                   className="mr-3"
-                  alt={categories[selectedCategories].name}
+                  alt={obj.name}
                 />
                 <div className="media-body">
                   <h4 className="mt-0">
-                    {categories[selectedCategories].name}
+                    {obj.name}
                   </h4>
                   <h5>
                     należy wrzucić do pojemników na{" "}
-                    {categories[selectedCategories].name}
+                    {obj.name}
                   </h5>
                   Krótki opis dlaczego
                 </div>

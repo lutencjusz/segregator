@@ -10,17 +10,19 @@ const Description = ({ selected}) => {
     API.dictionary.fetchAllCategories
   );
 
+  const obj = categories.find(category => category.id === selected.categoryId)
+
   return (
     <div className="media">
       <img
-        src={categories[selected.categoryId].image}
+        src={obj.image}
         className="mr-3"
-        alt={categories[selected.categoryId].name}
+        alt={obj.name}
       />
       <div className="media-body">
-        <h4 className="mt-0">{selected.name}</h4>
+        <h4 className="mt-0">{obj.name}</h4>
         <h5>
-          należy wrzucić do pojemników na {categories[selected.categoryId].name}
+          należy wrzucić do pojemników na {obj.name}
         </h5>
         Krótki opis dlaczego
       </div>

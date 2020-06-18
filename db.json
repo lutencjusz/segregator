@@ -127,6 +127,11 @@
       "categoryId": 1,
       "description": "dgdgdg",
       "modifiedCategory": true
+    },
+    {
+      "customOption": true,
+      "name": "bvnbvnbvnvbn",
+      "id": "new-id-2"
     }
   ]
 }
