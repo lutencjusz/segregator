@@ -30,12 +30,19 @@ export const Searcher = ({
   const changeSeletedId = async (newId) => {
     setSelected(newId);
     if (newId && newId.customOption) {
-      newId.id =
-        (await candidates.reduce(function (prev, current) {
-          // znajduje max
-          return prev.id > current.id ? prev : current;
-        }).id) + 1;
-      await fetchAddCandidate(newId).then(() => queryCache.refetchQueries("candidates"))
+      if (candidates.length > 0) {
+        newId.id =
+          (await candidates.reduce(function (prev, current) {
+            // znajduje max
+            return prev.id > current.id ? prev : current;
+          }).id) + 1;
+      } else {
+        newId.id = 1;
+      }
+
+      await fetchAddCandidate(newId).then(() =>
+        queryCache.refetchQueries("candidates")
+      );
     }
     // console.log(`changeSelectedId: ${newId}`);
   };

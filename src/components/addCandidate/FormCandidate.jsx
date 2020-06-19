@@ -95,8 +95,8 @@ const FormCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
 
     // setDictionary(result);
     await API.dictionary
-      .fetchDeleteCandidate(selectedCandidate.id)
-      .catch(() => 
+      .fetchDeleteCandidate(selectedCandidate)
+      .catch(() =>
         Message(
           `Próba usunięcia ${selectedCandidate.name} z listy kandydatów nie udała się!`,
           "error"
@@ -126,8 +126,9 @@ const FormCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
 
   const handleDelete = async (e) => {
     // console.log({ selectedCandidate });
+
     await API.dictionary
-      .fetchDeleteCandidate(selectedCandidate.id)
+      .fetchDeleteCandidate(selectedCandidate)
       .then(function (defs) {
         // żeby pobrać wartości promise
         if (defs.status) {
