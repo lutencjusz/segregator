@@ -25,7 +25,7 @@
 .doPrawej {
   text-align: right;
   display: grid;
-  grid-template-columns: 1fr 7fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 6fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .doLewej {
@@ -146,4 +146,49 @@
 
 .swal2-popup {
   background-color: #80ff80;
+}
+
+@media only screen and (max-width: 1199px) {
+  .button_w img {
+    width: 70%;
+    height: auto;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+  }
+
+  span {
+    width: 15%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  .doPrawej .button_w {
+    margin: 5%;
+    max-height: 30px;
+  }
+
+  .button_w img {
+    min-width: 20px;
+    height: auto;
+  }
+
+  .media img {
+    width: 40%;
+    height: auto;
+  }
+
+  .odstep {
+    margin: 2px;
+  }
+
+}
+
+@media only screen and (max-width: 576px) {
+  html {
+    font-size: 30%;
+  }
 }
