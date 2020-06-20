@@ -6,42 +6,40 @@ import API from "data/fetch";
 import { useQuery } from "react-query";
 
 const DescCategories = ({ selectedCategories }) => {
-  
   const { data: categories } = useQuery(
     "categories",
     API.dictionary.fetchAllCategories
   );
 
-  const obj = categories.find(category => category.id === selectedCategories)
+  const obj = categories.find((category) => category.id === selectedCategories);
 
   return (
     <SuspenseErrorBoundary>
       {categories ? (
         <Fragment>
           {/* <div className="row"> */}
-            <Trashes />
+          <Trashes />
           {/* </div> */}
           {/* <div className="row">
             <div className="col-2" />
             <div className="col-8"> */}
-              <div className="media">
-                <img
-                  src={obj.image}
-                  className="mr-3"
-                  alt={obj.name}
-                />
-                <div className="media-body">
-                  <h4 className="mt-0">
-                    {obj.name}
-                  </h4>
-                  <h5>
-                    należy wrzucić do pojemników na{" "}
-                    {obj.name}
-                  </h5>
-                  Krótki opis dlaczego
-                </div>
-              </div>
-            {/* </div>
+          <div className="media">
+            <img src={obj.image} className="mr-3" alt={obj.name} />
+            <div className="media-body">
+              <h4 className="mt-0">{obj.name}</h4>
+              {/* <h5>należy wrzucić do pojemników na {obj.name}</h5> */}
+              <h6>{obj.remember}</h6>
+            </div>
+          </div>
+          <div className="media_appendix">
+            <h5>Tak:</h5>
+            <h6>{obj.descYes}</h6>
+          </div>
+          <div className="media_appendix">
+            <h5>Nie:</h5>
+            <h6>{obj.descNo}</h6>
+          </div>
+          {/* </div>
           </div> */}
         </Fragment>
       ) : null}

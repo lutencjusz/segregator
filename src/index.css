@@ -41,6 +41,13 @@
 .tlo .media {
   margin-top: 2%;
   margin-left: 10%;
+  margin-right: 10%;
+}
+.media_appendix {
+  text-align: left;
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .button_w {
@@ -50,7 +57,7 @@
   padding-bottom: 0.3rem;
   padding-left: 0.8rem;
   padding-right: 0.8rem;
-  max-width: 10rem;
+  max-width: 7rem;
   text-shadow: 0 1px 1px #6dd96d;
   margin: 15px;
   border: none;
@@ -58,6 +65,11 @@
   background: #80ff80;
   transition-duration: 0.4s;
   box-shadow: 10px 10px 50px #6dd96d, -10px -10px 50px #93ff93;
+}
+
+.button_w img {
+  width: 80%;
+  height: auto;
 }
 
 .button_w_red {
@@ -79,6 +91,7 @@
 }
 
 .media img {
+  width: 20%;
   border-radius: 5px;
   background: #80ff80;
   box-shadow: inset 14px 14px 22px #5dba5d, inset -13px -13px 22px #a3ffa3;
@@ -158,6 +171,12 @@
   
   .tlo .media {
     margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .media_appendix {
+    margin-left: 10%;
+    margin-right: 10%; 
   }
 
   .doPrawej .button_w {
@@ -171,7 +190,7 @@
     /* max-width: 100px; */
     padding-left: 1px;
     padding-right: 1px;
-    margin: 2%;
+    margin: 4%;
   }
 
   .odstep {
@@ -187,7 +206,7 @@
   }
 
   .media img {
-    width: 15%;
+    width: 25%;
     min-width: 30px;
     height: auto;
   }
@@ -201,12 +220,24 @@
   .button_w {
     width: 5rem;
   }
+
+  .media img {
+    width: 40%;
+    min-width: 30px;
+    height: auto;
+  }
+
 }
 
 @media only screen and (max-width: 768px) {
 
   .tlo .media {
     margin-left: 5%;
+    margin-right: 5%;
+  }
+  .media_appendix {
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   html {
@@ -229,7 +260,7 @@
   }
 
   .media img {
-    width: 15%;
+    width: 40%;
     min-width: 30px;
     height: auto;
   }
@@ -244,6 +275,10 @@
 
   .button_w {
     width: 5rem;
+  }
+
+  .media img {
+    width: 35%;
   }
 
   html {

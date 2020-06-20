@@ -49,7 +49,7 @@ export const Searcher = ({
   // console.log({dictionary})
   return (
     <div className="row">
-      <div className={selected && !selected.customOption ? "col-6" : "col-12"}>
+      <div className={selected && !selected.customOption ? "col-5" : "col-12"}>
         <SuspenseErrorBoundary>
           {dictionary ? (
             <Fragment>
@@ -71,7 +71,7 @@ export const Searcher = ({
         </SuspenseErrorBoundary>
       </div>
       {selected && !selected.customOption ? (
-        <div className="col-6">
+        <div className="col-7">
           <Description />
         </div>
       ) : null}
