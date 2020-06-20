@@ -4,8 +4,12 @@ import Trashes from "../trashes";
 import { SuspenseErrorBoundary } from "components";
 import API from "data/fetch";
 import { useQuery } from "react-query";
+import { useTranslation } from 'react-i18next';
 
 const DescCategories = ({ selectedCategories }) => {
+
+  const { t } = useTranslation();
+
   const { data: categories } = useQuery(
     "categories",
     API.dictionary.fetchAllCategories
@@ -23,7 +27,7 @@ const DescCategories = ({ selectedCategories }) => {
           {/* <div className="row">
             <div className="col-2" />
             <div className="col-8"> */}
-          <div className="media">
+          <div className="media media_category">
             <img src={obj.image} className="mr-3" alt={obj.name} />
             <div className="media-body">
               <h4 className="mt-0">{obj.name}</h4>
@@ -32,11 +36,11 @@ const DescCategories = ({ selectedCategories }) => {
             </div>
           </div>
           <div className="media_appendix">
-            <h5>Tak:</h5>
+            <h5>{t('Tak')}:</h5>
             <h6>{obj.descYes}</h6>
           </div>
           <div className="media_appendix">
-            <h5>Nie:</h5>
+            <h5>{t('Nie')}:</h5>
             <h6>{obj.descNo}</h6>
           </div>
           {/* </div>

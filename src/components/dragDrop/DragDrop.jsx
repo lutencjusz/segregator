@@ -7,7 +7,7 @@ export const Drag = ({data, image, children}) => {
         if(image){
             let obrazek = new Image();
             obrazek.src = image;
-            e.dataTransfer.setDragImage(obrazek, 20, 20);
+            e.dataTransfer.setDragImage(obrazek, 15, 15);
         }
 
         console.log(`${data}`);

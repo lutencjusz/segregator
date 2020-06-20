@@ -27,6 +27,11 @@ export const Searcher = ({
     API.dictionary.fetchAllCandidates
   );
 
+  const { data: categories } = useQuery(
+    "categories",
+    API.dictionary.fetchAllCategories
+  );
+
   const changeSeletedId = async (newId) => {
     setSelected(newId);
     if (newId && newId.customOption) {
@@ -46,14 +51,22 @@ export const Searcher = ({
     }
     // console.log(`changeSelectedId: ${newId}`);
   };
-  // console.log({dictionary})
+  console.log({selected})
   return (
     <div className="row">
       <div className={selected && !selected.customOption ? "col-5" : "col-12"}>
         <SuspenseErrorBoundary>
           {dictionary ? (
             <Fragment>
-              <Drag data={selected}>
+              <Drag
+                data={selected}
+                image={selected && selected.categoryId ?
+                  categories.find(
+                    (category) => category.id === selected.categoryId
+                  ).image :
+                  {}
+                }
+              >
                 <Typeahead
                   className="custom-typeahead"
                   id="my-typeahead-id"

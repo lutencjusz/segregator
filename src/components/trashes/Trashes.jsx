@@ -21,7 +21,7 @@ const Trashes = ({ setSelectedCategories, setSelected, selected }) => {
 
   const getSelected = (categoryId) => {
     // console.log({ selected }, { categoryId });
-    if (selected && categoryId !== selected.categoryId) {
+    if (selected && categoryId && categoryId !== selected.categoryId) {
       Swal.fire({
         title: `Napisz dlaczego chcesz zmienić kategorię z ${
           categories.find(c => c.id === selected.categoryId).name
