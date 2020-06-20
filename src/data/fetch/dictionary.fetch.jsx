@@ -14,7 +14,13 @@ export const fetchAllCategories = async () => {
   //   //`${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/table?name="categories"`, {
   //   `${process.env.REACT_APP_API_URL}/categories`)
   const response = await fetch(
-    `${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/table?name="categories"`
+    `${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/table?name="categories"`,{
+      method: 'GET',
+    //   headers: { 
+    //     'Content-Type': 'application/json',
+    //     'Cache-Control': 'public, max-age=31536000'
+    // }
+    }
   ).catch((err) => console.log(err));
 
   const data = await response.json();
@@ -24,10 +30,7 @@ export const fetchAllCategories = async () => {
 export const fetchAllCandidates = async () => {
   // const response = await fetch(`${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/table?name="candidates"`, {
   const response = await fetch(
-    `${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/candidate`,
-    // {
-    //   heareds: { Pragma: "no-cache" },
-    // }
+    `${process.env.REACT_APP_API_URL_AMZ}/DEV/api/v1/candidate`
   );
   // umozliwia pobranie budżetu i jego transakcji
   const data = await response.json();

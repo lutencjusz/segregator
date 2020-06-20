@@ -60,6 +60,6 @@ export const setSelected = (selected) => {
     }
 
 
-    console.log({ objResult })
+    // console.log({ objResult })
     return objResult;
 }
