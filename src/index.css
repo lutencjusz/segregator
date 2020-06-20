@@ -39,6 +39,7 @@
 }
 
 .tlo .media {
+  margin-top: 2%;
   margin-left: 10%;
 }
 
@@ -153,9 +154,20 @@
 }
 
 @media only screen and (max-width: 1199px) {
+
+  
+  .tlo .media {
+    margin-left: 10%;
+  }
+
+  .doPrawej .button_w {
+    max-width: 0.5rem;
+    max-height: 0.5rem;
+  }
+
   .button_w {
-    width: 10%;
-    height: 10%;
+    width: 7rem;
+    height: auto;
     /* max-width: 100px; */
     padding-left: 1px;
     padding-right: 1px;
@@ -170,8 +182,8 @@
   .button_w img {
     width: 80%;
     height: auto;
-    padding-left: 0.1rem;
-    padding-right: 0.1rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
   }
 
   .media img {
@@ -185,9 +197,20 @@
   }
 }
 
+@media only screen and (max-width: 991px) {
+  .button_w {
+    width: 5rem;
+  }
+}
+
 @media only screen and (max-width: 768px) {
+
+  .tlo .media {
+    margin-left: 5%;
+  }
+
   html {
-    font-size: 62.5%;
+    font-size: 80%;
   }
 
   .doPrawej .button_w {
@@ -196,8 +219,9 @@
   }
 
   .button_w {
-    width: 10%;
+    width: 5rem;
   }
+
 
   .button_w img {
     min-width: 15px;
@@ -219,10 +243,11 @@
 @media only screen and (max-width: 576px) {
 
   .button_w {
-    width: 10%;
+    width: 4.8rem;
   }
 
   html {
     font-size: 70%;
+    min-width: 500px;
   }
 }

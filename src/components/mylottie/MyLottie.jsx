@@ -7,7 +7,7 @@ const MyLottie = () => {
         hover
         mode="bounce"
         src="https://assets10.lottiefiles.com/private_files/lf30_2KgeBh.json"
-        style={{width:60,height:60,color:"#fff"}}
+        style={{width:40,height:40,color:"#fff"}}
       ></lottie-player>
   );
 };
