@@ -18,12 +18,12 @@ const DescCategories = ({ selectedCategories }) => {
     <SuspenseErrorBoundary>
       {categories ? (
         <Fragment>
-          <div className="row">
+          {/* <div className="row"> */}
             <Trashes />
-          </div>
-          <div className="row">
+          {/* </div> */}
+          {/* <div className="row">
             <div className="col-2" />
-            <div className="col-8">
+            <div className="col-8"> */}
               <div className="media">
                 <img
                   src={obj.image}
@@ -41,8 +41,8 @@ const DescCategories = ({ selectedCategories }) => {
                   Krótki opis dlaczego
                 </div>
               </div>
-            </div>
-          </div>
+            {/* </div>
+          </div> */}
         </Fragment>
       ) : null}
     </SuspenseErrorBoundary>

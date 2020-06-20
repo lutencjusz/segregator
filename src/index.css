@@ -38,6 +38,10 @@
   background-color: #80ff80;
 }
 
+.tlo .media {
+  margin-left: 10%;
+}
+
 .button_w {
   font-size: 1rem;
   color: black;
@@ -150,8 +154,9 @@
 
 @media only screen and (max-width: 1199px) {
   .button_w {
-    width: 50%;
-    max-width: 80px;
+    width: 10%;
+    height: 10%;
+    /* max-width: 100px; */
     padding-left: 1px;
     padding-right: 1px;
     margin: 2%;
@@ -170,7 +175,7 @@
   }
 
   .media img {
-    width: 25%;
+    width: 15%;
     min-width: 30px;
     height: auto;
   }
@@ -191,16 +196,16 @@
   }
 
   .button_w {
-    width: 25%;
+    width: 10%;
   }
 
   .button_w img {
-    min-width: 20px;
+    min-width: 15px;
     height: auto;
   }
 
   .media img {
-    width: 25%;
+    width: 15%;
     min-width: 30px;
     height: auto;
   }
@@ -212,6 +217,11 @@
 }
 
 @media only screen and (max-width: 576px) {
+
+  .button_w {
+    width: 10%;
+  }
+
   html {
     font-size: 50%;
   }
