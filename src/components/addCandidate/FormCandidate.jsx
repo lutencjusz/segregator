@@ -64,6 +64,10 @@ const FormCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
             { label: t("Szkło"), value: "3" },
             { label: t("Tworzywa sztuczne"), value: "4" },
             { label: t("Zmieszane"), value: "5" },
+            { label: t("Zielone"), value: "6" },
+            { label: t("Bio-gastronomia"), value: "7" },
+            { label: t("PSZOK"), value: "8" },
+            { label: t("Elektrośmieci"), value: "9" },
           ]}
         />
       ),
