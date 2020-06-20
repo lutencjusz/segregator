@@ -149,15 +149,34 @@
 }
 
 @media only screen and (max-width: 1199px) {
+  .button_w {
+    width: 50%;
+    max-width: 80px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin: 2%;
+  }
+
+  .odstep {
+    margin: 1px;
+    text-align: center;
+  }
+  
   .button_w img {
-    width: 70%;
+    width: 80%;
     height: auto;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
   }
 
+  .media img {
+    width: 25%;
+    min-width: 30px;
+    height: auto;
+  }
+
   span {
-    width: 15%;
+    width: 5%;
   }
 }
 
@@ -168,7 +187,11 @@
 
   .doPrawej .button_w {
     margin: 5%;
-    max-height: 30px;
+    max-height: 20px;
+  }
+
+  .button_w {
+    width: 25%;
   }
 
   .button_w img {
@@ -177,7 +200,8 @@
   }
 
   .media img {
-    width: 40%;
+    width: 25%;
+    min-width: 30px;
     height: auto;
   }
 
@@ -189,6 +213,6 @@
 
 @media only screen and (max-width: 576px) {
   html {
-    font-size: 30%;
+    font-size: 50%;
   }
 }
