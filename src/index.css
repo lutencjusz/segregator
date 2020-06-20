@@ -243,11 +243,11 @@
 @media only screen and (max-width: 576px) {
 
   .button_w {
-    width: 4.8rem;
+    width: 5rem;
   }
 
   html {
     font-size: 70%;
-    min-width: 500px;
+    min-width: 320px;
   }
 }
