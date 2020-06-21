@@ -51,7 +51,7 @@ export const Searcher = ({
     }
     // console.log(`changeSelectedId: ${newId}`);
   };
-  console.log({selected})
+  // console.log({selected})
   return (
     <div className="row">
       <div className={selected && !selected.customOption ? "col-5" : "col-12"}>
@@ -60,11 +60,12 @@ export const Searcher = ({
             <Fragment>
               <Drag
                 data={selected}
-                image={selected && selected.categoryId ?
-                  categories.find(
-                    (category) => category.id === selected.categoryId
-                  ).image :
-                  {}
+                image={
+                  selected && selected.categoryId
+                    ? categories.find(
+                        (category) => category.id === selected.categoryId
+                      ).image
+                    : {}
                 }
               >
                 <Typeahead

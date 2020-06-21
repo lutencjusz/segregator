@@ -90,11 +90,21 @@ const FormCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
 
   const onSubmit = async (e) => {
     const result = e;
-    result.id =
-      (await dictionary.reduce(function (prev, current) {
-        // znajduje max
-        return prev.id > current.id ? prev : current;
-      }).id) + 1;
+
+    const findIdByName = await dictionary.find((dict) => dict.name === e.name);
+
+    if (findIdByName !== undefined) {
+      result.id = findIdByName.id;
+    } else {
+      result.id =
+        (await dictionary.reduce(function (prev, current) {
+          // znajduje max
+          return prev.id > current.id ? prev : current;
+        }).id) + 1;
+    }
+
+    console.log({result});
+    
     result.categoryId = parseInt(e.categoryId, 10); // zamienia string na int
 
     // setDictionary(result);
