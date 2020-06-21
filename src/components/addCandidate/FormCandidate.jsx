@@ -93,6 +93,7 @@ const FormCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
 
     const findIdByName = await dictionary.find((dict) => dict.name === e.name);
 
+    
     if (findIdByName !== undefined) {
       result.id = findIdByName.id;
     } else {
@@ -104,7 +105,7 @@ const FormCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
     }
 
     console.log({result});
-    
+
     result.categoryId = parseInt(e.categoryId, 10); // zamienia string na int
 
     // setDictionary(result);
