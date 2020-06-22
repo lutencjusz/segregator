@@ -14,9 +14,10 @@ import { useQuery } from "react-query";
 import { Message } from "components";
 
 const Trashes = ({ setSelectedCategories, setSelected, selected }) => {
+
   const { data: categories } = useQuery(
-    "categories",
-    API.dictionary.fetchAllCategories
+    ['categories', {cache: true}],
+    API.dictionary.fetchAll
   );
 
   const getSelected = (categoryId) => {

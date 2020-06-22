@@ -18,13 +18,13 @@ const FormCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
   const { t } = useTranslation();
 
   const { data: dictionary } = useQuery(
-    "dictionary",
-    API.dictionary.fetchAllDictionary
+    ['dictionary', {cache: true}],
+    API.dictionary.fetchAll
   );
 
   const { data: candidates } = useQuery(
-    "candidates",
-    API.dictionary.fetchAllCandidates
+    ['candidates', {cache: true}],
+    API.dictionary.fetchAll
   );
 
   const validate = (values) => {

@@ -9,8 +9,8 @@ const Description = ({ selected }) => {
   const { t } = useTranslation();
 
   const { data: categories } = useQuery(
-    "categories",
-    API.dictionary.fetchAllCategories
+    ['categories', {cache: true}],
+    API.dictionary.fetchAll
   );
 
   const obj = categories.find(

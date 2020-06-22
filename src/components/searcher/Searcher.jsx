@@ -18,23 +18,24 @@ export const Searcher = ({
   setSelected,
 }) => {
   const { data: dictionary } = useQuery(
-    "dictionary",
-    API.dictionary.fetchAllDictionary
+    ['dictionary', {cache: true}],
+    API.dictionary.fetchAll
   );
 
-  const { data: candidates } = useQuery(
-    "candidates",
-    API.dictionary.fetchAllCandidates
+  let { data: candidates } = useQuery(
+    ['candidates', {cache: false}],
+    API.dictionary.fetchAll
   );
 
   const { data: categories } = useQuery(
-    "categories",
-    API.dictionary.fetchAllCategories
+    ['categories', {cache: true}],
+    API.dictionary.fetchAll
   );
 
   const changeSeletedId = async (newId) => {
     setSelected(newId);
     if (newId && newId.customOption) {
+      console.log({candidates});
       if (candidates.length > 0) {
         newId.id =
           (await candidates.reduce(function (prev, current) {
@@ -45,8 +46,8 @@ export const Searcher = ({
         newId.id = 1;
       }
 
-      await fetchAddCandidate(newId).then(() =>
-        queryCache.refetchQueries("candidates")
+      await fetchAddCandidate(newId).then(async () =>
+        await queryCache.refetchQueries("candidates")
       );
     }
     // console.log(`changeSelectedId: ${newId}`);

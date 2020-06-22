@@ -9,14 +9,15 @@ import { setSelectedCandidate } from "data/actions/dictionary.actions.js";
 const FormCandidate = React.lazy(() => import("./FormCandidate.jsx"));
 
 const AddCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
+
   const { data: candidates } = useQuery(
-    "candidates",
-    API.dictionary.fetchAllCandidates
+    ['candidates', {cache: false}],
+    API.dictionary.fetchAll
   );
 
   const { data: categories } = useQuery(
-    "categories",
-    API.dictionary.fetchAllCategories
+    ['categories', {cache: true}],
+    API.dictionary.fetchAll
   );
 
   return (
