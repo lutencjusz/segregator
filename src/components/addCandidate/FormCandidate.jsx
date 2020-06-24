@@ -104,7 +104,7 @@ const FormCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
         }).id) + 1;
     }
 
-    console.log({result});
+    // console.log({result});
 
     result.categoryId = parseInt(e.categoryId, 10); // zamienia string na int
 

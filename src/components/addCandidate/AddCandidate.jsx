@@ -9,14 +9,13 @@ import { setSelectedCandidate } from "data/actions/dictionary.actions.js";
 const FormCandidate = React.lazy(() => import("./FormCandidate.jsx"));
 
 const AddCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
-
   const { data: candidates } = useQuery(
-    ['candidates', {cache: false}],
+    ["candidates", { cache: false }],
     API.dictionary.fetchAll
   );
 
   const { data: categories } = useQuery(
-    ['categories', {cache: true}],
+    ["categories", { cache: true }],
     API.dictionary.fetchAll
   );
 
@@ -29,13 +28,14 @@ const AddCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
               <Fragment>
                 <div className="col-2 doLewej">
                   {/* <ul className="list-group list-group-flush active"> */}
-                    {candidates.map((item) => (
-                      <CandidateItem
-                        key={item.id}
-                        item={item}
-                        onClick={() => setSelectedCandidate(item)}
-                      />
-                    ))}
+                  {candidates.map((item) => (
+                    <CandidateItem
+                      key={item.id}
+                      item={item}
+                      icon={item.modifiedCategory ? "star" : null}
+                      onClick={() => setSelectedCandidate(item)}
+                    />
+                  ))}
                   {/* </ul> */}
                 </div>
                 <div className="col-1" />
@@ -46,13 +46,14 @@ const AddCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
             ) : (
               <div className="col-12">
                 {/* <ul className="list-group list-group-flush active"> */}
-                  {candidates.map((item) => (
-                    <CandidateItem
-                      key={item.id}
-                      item={item}
-                      onClick={() => setSelectedCandidate(item)}
-                    />
-                  ))}
+                {candidates.map((item) => (
+                  <CandidateItem
+                    key={item.id}
+                    item={item}
+                    icon={item.modifiedCategory ? "star" : null}
+                    onClick={() => setSelectedCandidate(item)}
+                  />
+                ))}
                 {/* </ul> */}
               </div>
             )}

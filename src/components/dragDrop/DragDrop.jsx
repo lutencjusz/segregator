@@ -5,9 +5,14 @@ export const Drag = ({data, image, children}) => {
     function onDragStart(e) {
 
         if(image){
+            const scale = 0.5;
             let obrazek = new Image();
             obrazek.src = image;
-            e.dataTransfer.setDragImage(obrazek, 15, 15);
+            obrazek.width = obrazek.width * scale;
+            obrazek.height = obrazek.width * scale;
+            obrazek.scale = scale;
+            console.log({obrazek})
+            e.dataTransfer.setDragImage(obrazek, 0, 0);
         }
 
         console.log(`${data}`);
