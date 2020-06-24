@@ -77,7 +77,10 @@ export const Searcher = ({
                   options={dictionary}
                   allowNew={true}
                   newSelectionPrefix="Nowy wybór: "
+                  placeholder="Wprowadź odpad..."
                   shouldSelect={true}
+                  minLength={2}
+                  dropup={true}
                 />
               </Drag>
               <Trashes />
