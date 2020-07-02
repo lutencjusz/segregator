@@ -100,8 +100,8 @@
   width: 12%;
 }
 
-.naglowek_footer {
-  display: block;
+.naglowek_footer_right {
+  display: inline-block;
   margin-left: auto;
   margin-right: 1rem;
   font-size: 0.8rem;
@@ -117,6 +117,28 @@
   box-shadow: inset 4px 4px 12px #5dba5d, inset -3px -3px 12px #a3ffa3;
   text-shadow: 0 1px 1px #5dba5d;
   transition-duration: 0.4s;
+}
+
+.naglowek_footer_left {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  align-self: center;
+  width: 9rem;
+  text-align: center;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  color: #5dba5d;
+  border-radius: 10px;
+  background: #80ff80;
+  box-shadow: inset 4px 4px 12px #5dba5d, inset -3px -3px 12px #a3ffa3;
+  text-shadow: 0 1px 1px #5dba5d;
+  transition-duration: 0.4s;
+}
+
+.naglowek_footer {
+  display: flex;
 }
 
 small {
