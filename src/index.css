@@ -58,13 +58,13 @@
   padding-right: 2px;
   max-width: 7rem;
   max-height: 7rem;
-  text-shadow: 0 1px 1px #6dd96d;
+  text-shadow: 0 1px 1px #4d9a4d;
   margin: 15px;
   border: none;
   border-radius: 4px;
-  background: #6dd96d;
-  box-shadow:  5px 5px 10px #4d9a4d, 
-               -5px -5px 10px #8dff8d;
+  background: #8dff8d;
+  box-shadow:  6px 6px 12px #78d978, 
+               -6px -6px 12px #a2ffa2;
   transition-duration: 0.4s;
 }
 
@@ -80,16 +80,16 @@
 
 .button_w:hover {
   border-radius: 4px;
-  background: #6dd96d;
-  box-shadow:  9px 9px 18px #4d9a4d, 
-               -9px -9px 18px #8dff8d;
+  background: #8dff8d;
+  box-shadow:  11px 11px 22px #78d978, 
+               -11px -11px 22px #a2ffa2;
 }
 
 .button_w:active {
   border-radius: 4px;
-  background: #6dd96d;
-  box-shadow: inset 5px 5px 10px #4d9a4d, 
-              inset -5px -5px 10px #8dff8d;
+  background: #8dff8d;
+  box-shadow: inset 9px 9px 18px #78d978, 
+              inset -9px -9px 18px #a2ffa2;
 }
 
 .button_w:focus {
