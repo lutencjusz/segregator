@@ -70,7 +70,7 @@
 
 .button_w img {
   border-radius: 4px;
-  width: 100%;
+  width: 100px;
   height: auto;
 }
 
@@ -255,6 +255,10 @@ small:hover {
     height: auto;
   }
 
+  .button_w img {
+    width: 70px;
+  }
+
   .media_category img {
     width: 12%;
   }
@@ -271,8 +275,12 @@ small:hover {
   }
 
   .button_w {
-    border-radius: 3px;
+    border-radius: 4px;
     width: 5rem;
+  }
+
+  .button_w img {
+    width: 75px;
   }
 
   .media img {
@@ -313,8 +321,7 @@ small:hover {
 
 
   .button_w img {
-    min-width: 15px;
-    height: auto;
+width: 60px;
   }
 
   .media img {
@@ -336,7 +343,11 @@ small:hover {
 @media only screen and (max-width: 576px) {
 
   .button_w {
-    width: 5rem;
+    width: 4rem;
+  }
+
+  .button_w img {
+    width: 42px;
   }
 
   .media img {
