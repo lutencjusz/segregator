@@ -52,22 +52,25 @@
 .button_w {
   font-size: 1rem;
   color: black;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
   max-width: 7rem;
+  max-height: 7rem;
   text-shadow: 0 1px 1px #6dd96d;
   margin: 15px;
   border: none;
-  border-radius: 10px;
-  background: #80ff80;
+  border-radius: 4px;
+  background: #6dd96d;
+  box-shadow:  5px 5px 10px #4d9a4d, 
+               -5px -5px 10px #8dff8d;
   transition-duration: 0.4s;
-  box-shadow: 10px 10px 50px #6dd96d, -10px -10px 50px #93ff93;
 }
 
 .button_w img {
-  width: 80%;
+  border-radius: 4px;
+  width: 100%;
   height: auto;
 }
 
@@ -76,13 +79,17 @@
 }
 
 .button_w:hover {
-  box-shadow: 10px 10px 50px #6dd96d, -10px -10px 50px #93ff93;
-  transform: scale(1.05);
+  border-radius: 4px;
+  background: #6dd96d;
+  box-shadow:  9px 9px 18px #4d9a4d, 
+               -9px -9px 18px #8dff8d;
 }
 
 .button_w:active {
-  transition-duration: 0s;
-  transform: translateY(5px);
+  border-radius: 4px;
+  background: #6dd96d;
+  box-shadow: inset 5px 5px 10px #4d9a4d, 
+              inset -5px -5px 10px #8dff8d;
 }
 
 .button_w:focus {
@@ -230,31 +237,10 @@ small:hover {
     margin-left: 10%;
     margin-right: 10%; 
   }
-
-  .doPrawej .button_w {
-    max-width: 0.5rem;
-    max-height: 0.5rem;
-  }
-
-  .button_w {
-    width: 7rem;
-    height: auto;
-    /* max-width: 100px; */
-    padding-left: 1px;
-    padding-right: 1px;
-    margin: 1%;
-  }
-
+ 
   .odstep {
     margin: 1px;
     text-align: center;
-  }
-  
-  .button_w img {
-    width: 80%;
-    height: auto;
-    padding-left: 0.6rem;
-    padding-right: 0.6rem;
   }
 
   .media img {
@@ -273,7 +259,13 @@ small:hover {
 }
 
 @media only screen and (max-width: 991px) {
+
+  .doPrawej .button_w {
+    width: 2rem;
+  }
+
   .button_w {
+    border-radius: 3px;
     width: 5rem;
   }
 

@@ -6,7 +6,7 @@ const ButtonNew = ({ category, size = 100, children, onClick }) => {
       {!children ? (
         <img
           border="0"
-          className="odstep"
+          // className="odstep"
           alt={category.name}
           src={category.image}
           width={size}
