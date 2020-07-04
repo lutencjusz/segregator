@@ -347,7 +347,7 @@ width: 60px;
   }
 
   .button_w img {
-    width: 42px;
+    width: 48px;
   }
 
   .media img {
@@ -358,10 +358,24 @@ width: 60px;
     width: 20%;
   }
   
+}
+
+@media only screen and (max-width: 446px) {
+
   html {
     font-size: 70%;
-    min-width: 440px;
+    min-width: 330px;
   }
+
+  .button_w {
+    width: 2.5rem;
+    margin: 5px;
+  }
+
+  .button_w img {
+    width: 25px;
+  }
+
 }
 
 @font-face {
