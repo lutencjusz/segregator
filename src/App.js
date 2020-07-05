@@ -13,6 +13,7 @@ import { SuspenseErrorBoundary, Searcher, MyLottie } from "components";
 
 const DescCategories = React.lazy(() => import('./components/descCategories'));
 const AddCandidate = React.lazy(() => import('./components/addCandidate'));
+const PszokList = React.lazy(() => import('./components/pszokList'));
 
 const App = () => {
 
@@ -52,6 +53,11 @@ const App = () => {
           <Route path="/dodajKandydata">
             <SuspenseErrorBoundary>
               <AddCandidate />
+            </SuspenseErrorBoundary>
+          </Route>
+          <Route path="/listaPunktow">
+            <SuspenseErrorBoundary>
+              <PszokList/>
             </SuspenseErrorBoundary>
           </Route>
         </Switch>

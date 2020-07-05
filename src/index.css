@@ -186,6 +186,18 @@ small:hover {
   transform: scale(1.05);
 }
 
+.tytul_a {
+  color: rgb(0, 0, 0, 0.87);
+  width: 7rem;
+}
+.tytul_a:hover {
+  background: #8dff8d;
+  box-shadow:  11px 11px 22px #78d978, 
+               -11px -11px 22px #a2ffa2;
+  transition-duration: 0.4s;
+  transform: scale(1.01);
+}
+
 .naglowek_a:hover {
   text-decoration: none;
 }
