@@ -1,10 +1,22 @@
-import React from 'react';
+import React from "react";
+import API from "data/fetch";
+import { useQuery } from "react-query";
+import { SuspenseErrorBoundary } from "components";
+import Pszok from "./Pszok.jsx";
+
 
 const PszokList = () => {
-    return (
-       <div className="naglowek">PszokList</div>
-    )
-}
 
-export default PszokList
+  const { data: pszok } = useQuery(
+    ["pszok", { cache: true }],
+    API.dictionary.fetchAll
+  );
 
+  return (
+    <SuspenseErrorBoundary>
+      {pszok ? pszok.map((item) => <Pszok obj={item} />) : null}
+    </SuspenseErrorBoundary>
+  );
+};
+
+export default PszokList;
