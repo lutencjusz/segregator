@@ -14,7 +14,7 @@ const PszokList = () => {
 
   return (
     <SuspenseErrorBoundary>
-      {pszok ? pszok.map((item) => <Pszok obj={item} />) : null}
+      {pszok ? pszok.map((item) => <Pszok obj={item} key={item.id}/>) : null}
     </SuspenseErrorBoundary>
   );
 };
