@@ -116,7 +116,7 @@
 .naglowek_footer_right {
   display: inline-block;
   margin-left: auto;
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
   font-size: 0.8rem;
   margin-top: 1rem;
   align-self: center;
@@ -134,7 +134,7 @@
 
 .naglowek_footer_left {
   display: inline-block;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   font-size: 0.8rem;
   margin-top: 1rem;
   align-self: center;

@@ -8,8 +8,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link
 } from 'react-router-dom';
-import { SuspenseErrorBoundary, Searcher, MyLottie } from "components";
+import { SuspenseErrorBoundary, Searcher, MyLottie, Footer } from "components";
 
 const DescCategories = React.lazy(() => import('./components/descCategories'));
 const AddCandidate = React.lazy(() => import('./components/addCandidate'));
@@ -34,30 +35,34 @@ const App = () => {
               <button className="button_w" onClick={() => i18n.changeLanguage('fr')}>fr</button>
               <button className="button_w" onClick={() => i18n.changeLanguage('zh-CN')}>ch</button>
             </div>
-            <a href="/#/" className="naglowek_a">
+            <Link to="/#/" className="naglowek_a">
               <h2 className="naglowek"><div className="tytul">{t("Klasyfikacja odpadków")}</div></h2>
-            </a>
+            </Link>
           </div>
         </div>
         <Switch>
           <Route exact path="/">
             <SuspenseErrorBoundary>
               <Searcher />
+              <Footer/>
             </SuspenseErrorBoundary>
           </Route>
           <Route path="/pomoc">
             <SuspenseErrorBoundary>
               <DescCategories />
+              <Footer/>
             </SuspenseErrorBoundary>
           </Route>
-          <Route path="/dodajKandydata">
+          <Route exact path="/dodajKandydata">
             <SuspenseErrorBoundary>
               <AddCandidate />
+              <Footer/>
             </SuspenseErrorBoundary>
           </Route>
-          <Route path="/listaPunktow">
+          <Route exact path="/listaPunktow">
             <SuspenseErrorBoundary>
               <PszokList/>
+              <Footer/>
             </SuspenseErrorBoundary>
           </Route>
         </Switch>

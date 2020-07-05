@@ -5,6 +5,7 @@ import { SuspenseErrorBoundary } from "components";
 import API from "data/fetch";
 import { useQuery } from "react-query";
 import { useTranslation } from "react-i18next";
+import {Link} from "react-router-dom";
 
 const DescCategories = ({ selectedCategories }) => {
   const { t } = useTranslation();
@@ -27,11 +28,11 @@ const DescCategories = ({ selectedCategories }) => {
                 <h4 className="mt-0">{obj.name}</h4>
                 <h6>{obj.remember}</h6>
                 {obj.name === "PSZOK" ? (
-                  <a href="/listaPunktow" className="naglowek_a">
+                  <Link to="/listaPunktow" className="naglowek_a">
                     <h6>
                       <div className="tytul_a">{t("lista punktów")}</div>
                     </h6>
-                  </a>
+                  </Link>
                 ) : null}
               </div>
             </div>
@@ -43,7 +44,6 @@ const DescCategories = ({ selectedCategories }) => {
               <h5>{t("Nie")}:</h5>
               <h6>{obj.descNo}</h6>
             </div>
-            <h6><br/></h6>
         </Fragment>
       ) : null}
     </SuspenseErrorBoundary>
