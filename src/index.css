@@ -286,6 +286,18 @@ small:hover {
     width: 2rem;
   }
 
+  .MuiGrid-root .button_w {
+    width: 5rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .doLewej .button_w {
+    width: 4rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
   .button_w {
     border-radius: 4px;
     width: 5rem;
