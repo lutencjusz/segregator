@@ -38,8 +38,7 @@ const AddCandidate = ({ selectedCandidate, setSelectedCandidate }) => {
                   ))}
                   {/* </ul> */}
                 </div>
-                <div className="col-1" />
-                <div className="col-6">
+                <div className="col-10">
                   <FormCandidate />
                 </div>
               </Fragment>
