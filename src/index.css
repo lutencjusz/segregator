@@ -1,11 +1,19 @@
 @keyframes blackToBlue {
-  from {color: black;}
-  to {color: blue;}
+  from {
+    color: black;
+  }
+  to {
+    color: blue;
+  }
 }
 
 @keyframes thinToBold {
-  from {border-bottom: 0.5px solid black;}
-  to {border-bottom: 2px solid black;;}
+  from {
+    border-bottom: 0.5px solid black;
+  }
+  to {
+    border-bottom: 2px solid black;
+  }
 }
 
 /* code {
@@ -63,8 +71,7 @@
   border: none;
   border-radius: 4px;
   background: #8dff8d;
-  box-shadow:  6px 6px 12px #78d978, 
-               -6px -6px 12px #a2ffa2;
+  box-shadow: 6px 6px 12px #78d978, -6px -6px 12px #a2ffa2;
   transition-duration: 0.2s;
 }
 
@@ -81,16 +88,14 @@
 .button_w:hover {
   border-radius: 4px;
   background: #8dff8d;
-  box-shadow:  11px 11px 22px #78d978, 
-               -11px -11px 22px #a2ffa2;
+  box-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
 }
 
 .button_w:active {
   transition-duration: 0.2s;
   border-radius: 4px;
   background: #8dff8d;
-  box-shadow: inset 9px 9px 18px #78d978, 
-              inset -9px -9px 18px #a2ffa2;
+  box-shadow: inset 9px 9px 18px #78d978, inset -9px -9px 18px #a2ffa2;
 }
 
 .button_w:focus {
@@ -192,8 +197,7 @@ small:hover {
 }
 .tytul_a:hover {
   background: #8dff8d;
-  box-shadow:  11px 11px 22px #78d978, 
-               -11px -11px 22px #a2ffa2;
+  box-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
   transition-duration: 0.4s;
   transform: scale(1.01);
 }
@@ -208,7 +212,16 @@ small:hover {
   border-bottom: 0.5px solid black;
 }
 
-.custom-typeahead .form-control:hover {
+.finder {
+  background-color: #80ff80;
+  border: none;
+  border-bottom: 0.5px solid black;
+  min-width: 20rem;
+}
+
+
+.custom-typeahead .form-control:hover,
+.finder:hover {
   animation-name: thinToBold;
   animation-duration: 100ms;
   animation-timing-function: ease-out;
@@ -217,7 +230,8 @@ small:hover {
   color: black;
 }
 
-.custom-typeahead .form-control:focus {
+.custom-typeahead .form-control:focus,
+.finder:focus {
   background-color: #80ff80;
   box-shadow: none;
   animation-name: blackToBlue;
@@ -236,8 +250,8 @@ small:hover {
   background-color: #80ff80;
 }
 
-.custom-typeahead .dropdown-item.hover{
-  background-color: #5dba5d
+.custom-typeahead .dropdown-item.hover {
+  background-color: #5dba5d;
 }
 
 .swal2-popup {
@@ -245,7 +259,6 @@ small:hover {
 }
 
 @media only screen and (max-width: 1199px) {
-
   .tlo .media {
     margin-left: 10%;
     margin-right: 10%;
@@ -253,9 +266,9 @@ small:hover {
 
   .media_appendix {
     margin-left: 10%;
-    margin-right: 10%; 
+    margin-right: 10%;
   }
- 
+
   .odstep {
     margin: 1px;
     text-align: center;
@@ -281,7 +294,6 @@ small:hover {
 }
 
 @media only screen and (max-width: 991px) {
-
   .doPrawej .button_w {
     width: 2rem;
   }
@@ -297,7 +309,7 @@ small:hover {
     padding-left: 0;
     padding-right: 0;
   }
-  
+
   .button_w {
     border-radius: 4px;
     width: 5rem;
@@ -316,11 +328,9 @@ small:hover {
   .media_category img {
     width: 20%;
   }
-
 }
 
 @media only screen and (max-width: 768px) {
-
   .tlo .media {
     margin-left: 5%;
     margin-right: 5%;
@@ -343,9 +353,8 @@ small:hover {
     width: 5rem;
   }
 
-
   .button_w img {
-width: 60px;
+    width: 60px;
   }
 
   .media img {
@@ -361,11 +370,9 @@ width: 60px;
   .odstep {
     margin: 2px;
   }
-
 }
 
 @media only screen and (max-width: 576px) {
-
   .button_w {
     width: 4rem;
   }
@@ -381,11 +388,9 @@ width: 60px;
   .media_category img {
     width: 20%;
   }
-  
 }
 
 @media only screen and (max-width: 446px) {
-
   html {
     font-size: 70%;
     min-width: 330px;
@@ -399,19 +404,27 @@ width: 60px;
   .button_w img {
     width: 25px;
   }
-
 }
 
 @font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.eot'); 
-  src: url('https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.woff2') format('woff2'), url('https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'), url('https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'), url('https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  font-family: "Glyphicons Halflings";
+  src: url("https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.woff2")
+      format("woff2"),
+    url("https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.woff")
+      format("woff"),
+    url("https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.ttf")
+      format("truetype"),
+    url("https://www.st-andrews.ac.uk/~cdn/dpl/1.7.2/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular")
+      format("svg");
 }
 .glyphicon {
   position: relative;
   top: 1px;
   display: inline-block;
-  font-family: 'Glyphicons Halflings';
+  font-family: "Glyphicons Halflings";
   font-style: normal;
   font-weight: normal;
   line-height: 1;
