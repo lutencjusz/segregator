@@ -114,12 +114,45 @@
   box-shadow: inset 14px 14px 22px #5dba5d, inset -13px -13px 22px #a3ffa3;
 }
 
-.pszok img {
+.pszok button {
+  margin-right: 1rem;
+  border: none;
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  background: #8dff8d;
+  box-shadow: 6px 6px 12px #78d978, -6px -6px 12px #a2ffa2;
+  transition-duration: 0.2s;
+}
+
+.pszok button:hover {
   border-radius: 4px;
   background: #8dff8d;
   box-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
 }
 
+.pszok button:active {
+  transition-duration: 0.2s;
+  border-radius: 4px;
+  background: #8dff8d;
+  box-shadow: inset 9px 9px 18px #78d978, inset -9px -9px 18px #a2ffa2;
+}
+
+.pszok button:focus {
+  outline: none; /*usuwa obwódkę*/
+}
+
+.pszok button img {
+  width: 100px;
+}
+
+.GoogleMap {
+  margin-top: 1rem;
+  width: 60rem;
+  border-radius: 4px;
+  background: #8dff8d;
+  box-shadow: 6px 6px 12px #78d978, -6px -6px 12px #a2ffa2;
+}
 .media_category img {
   width: 12%;
 }
@@ -221,11 +254,10 @@ small:hover {
 .finder {
   background-color: #80ff80;
   border: none;
-  outline:none; /*usuwa obwódkę*/
+  outline: none; /*usuwa obwódkę*/
   border-bottom: 0.5px solid black;
   min-width: 20rem;
 }
-
 
 .custom-typeahead .form-control:hover,
 .finder:hover {
@@ -235,7 +267,7 @@ small:hover {
   animation-fill-mode: both;
   border-bottom: 2px solid black;
   box-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
-  text-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;;
+  text-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
   color: black;
 }
 
@@ -249,7 +281,7 @@ small:hover {
   animation-timing-function: ease-out;
   animation-fill-mode: both;
   border-bottom: 2px solid blue;
-  text-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;;
+  text-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
   box-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
 }
 

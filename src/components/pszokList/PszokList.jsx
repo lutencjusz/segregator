@@ -10,7 +10,8 @@ const PszokList = () => {
     API.dictionary.fetchAll
   );
 
-  const [listFilter, addListFilter] = useState({filterFound:pszok});
+  const [listFilter, addListFilter] = useState({ filterFound: pszok });
+  const [mapId, setMapId] = useState(0);
 
   const checkFilter = (e) => {
     let req = e.target.value;
@@ -18,8 +19,8 @@ const PszokList = () => {
     addListFilter({
       filterFound: pszok.filter(
         (p) =>
-          (p.street.toLowerCase().includes(req.toLowerCase()) ||
-            p.name.toLowerCase().includes(req.toLowerCase()))
+          p.street.toLowerCase().includes(req.toLowerCase()) ||
+          p.name.toLowerCase().includes(req.toLowerCase())
       ),
     });
   };
@@ -34,7 +35,14 @@ const PszokList = () => {
       />
       {listFilter.filterFound
         ? listFilter.filterFound.map((item) => (
-            <Pszok obj={item} key={item.id} />
+            <Pszok
+              obj={item}
+              key={item.id}
+              mapa={item.id === mapId}
+              lat={item.lat}
+              lng={item.lng} 
+              onClick={()=>setMapId(item.id)}
+            />
           ))
         : null}
     </SuspenseErrorBoundary>
