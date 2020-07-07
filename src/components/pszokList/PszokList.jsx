@@ -50,3 +50,4 @@ const PszokList = () => {
 };
 
 export default PszokList;
+
