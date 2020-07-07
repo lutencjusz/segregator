@@ -22,7 +22,6 @@ const PszokList = () => {
             p.name.toLowerCase().includes(req.toLowerCase()))
       ),
     });
-    console.log(listFilter.filterFound);
   };
 
   return (

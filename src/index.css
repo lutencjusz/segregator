@@ -114,6 +114,12 @@
   box-shadow: inset 14px 14px 22px #5dba5d, inset -13px -13px 22px #a3ffa3;
 }
 
+.pszok img {
+  border-radius: 4px;
+  background: #8dff8d;
+  box-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
+}
+
 .media_category img {
   width: 12%;
 }
@@ -215,6 +221,7 @@ small:hover {
 .finder {
   background-color: #80ff80;
   border: none;
+  outline:none; /*usuwa obwódkę*/
   border-bottom: 0.5px solid black;
   min-width: 20rem;
 }
@@ -227,11 +234,14 @@ small:hover {
   animation-timing-function: ease-out;
   animation-fill-mode: both;
   border-bottom: 2px solid black;
+  box-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
+  text-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;;
   color: black;
 }
 
 .custom-typeahead .form-control:focus,
 .finder:focus {
+  text-decoration: none;
   background-color: #80ff80;
   box-shadow: none;
   animation-name: blackToBlue;
@@ -239,6 +249,8 @@ small:hover {
   animation-timing-function: ease-out;
   animation-fill-mode: both;
   border-bottom: 2px solid blue;
+  text-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;;
+  box-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
 }
 
 .custom-typeahead .dropdown-item:focus,
