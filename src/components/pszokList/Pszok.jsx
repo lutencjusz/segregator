@@ -8,7 +8,7 @@ const containerStyle = {
 
 
 const Pszok = ({ obj, mapa, onClick, lat, lng }) => {
-  const [map, setMap] = React.useState(null);
+  const [, setMap] = React.useState(null); //nie odczytuję wartości
   const key = process.env.REACT_APP_GOOGLE_MAP_KEY;
 
   const position = {

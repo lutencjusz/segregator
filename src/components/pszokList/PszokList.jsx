@@ -40,8 +40,14 @@ const PszokList = () => {
               key={item.id}
               mapa={item.id === mapId}
               lat={item.lat}
-              lng={item.lng} 
-              onClick={()=>setMapId(item.id)}
+              lng={item.lng}
+              onClick={() => {
+                if (item.id !== mapId) {
+                  setMapId(item.id);
+                } else {
+                  setMapId(0);
+                }
+              }}
             />
           ))
         : null}
@@ -50,4 +56,3 @@ const PszokList = () => {
 };
 
 export default PszokList;
-
