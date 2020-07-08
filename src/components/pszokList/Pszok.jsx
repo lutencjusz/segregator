@@ -43,8 +43,9 @@ const Pszok = ({ obj, mapa, onClick, lat, lng }) => {
               zoom={13}
               // onLoad={onLoad}
               onUnmount={onUnmount}
+              disableDefaultUI={true}
             >
-              <Marker position={position} />
+              <Marker position={position} name={obj.name} />
             </GoogleMap>
           </div>
         </LoadScript>
