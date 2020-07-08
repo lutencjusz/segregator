@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const containerStyle = {
-  width: "60rem",
-  height: "40rem",
+  width: "80vw",
+  height: "40vw",
 };
 
 
