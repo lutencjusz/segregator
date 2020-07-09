@@ -55,3 +55,4 @@ const Pszok = ({ obj, mapa, onClick, lat, lng }) => {
 };
 
 export default Pszok;
+
