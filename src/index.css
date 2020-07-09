@@ -250,6 +250,7 @@ small:hover {
   background-color: #80ff80;
   border: none;
   border-bottom: 0.5px solid black;
+  font-size: inherit;
 }
 
 .finder {
