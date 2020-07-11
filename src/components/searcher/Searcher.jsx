@@ -11,12 +11,14 @@ import API from "data/fetch";
 import { useQuery } from "react-query";
 import { fetchAddCandidate } from "data/fetch/dictionary.fetch";
 import { queryCache } from "react-query";
+import { useTranslation } from "react-i18next";
 
 export const Searcher = ({
   // ładuje dane ze store i wyszukuje pojecia
   selected,
   setSelected,
 }) => {
+  const { t } = useTranslation();
   const { data: dictionary } = useQuery(
     ['dictionary', {cache: true}],
     API.dictionary.fetchAll
@@ -76,8 +78,8 @@ export const Searcher = ({
                   labelKey="name"
                   options={dictionary}
                   allowNew={true}
-                  newSelectionPrefix="Nowy wybór: "
-                  placeholder="Wprowadź odpad..."
+                  newSelectionPrefix={`${t("Nowy wybór")}: `}
+                  placeholder={`${t("Wprowadź odpad")}...`}
                   shouldSelect={true}
                   minLength={2}
                   dropup={true}

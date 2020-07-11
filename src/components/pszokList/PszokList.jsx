@@ -3,8 +3,10 @@ import API from "data/fetch";
 import { useQuery } from "react-query";
 import { SuspenseErrorBoundary } from "components";
 import Pszok from "./Pszok.jsx";
+import { useTranslation } from "react-i18next";
 
 const PszokList = () => {
+  const { t } = useTranslation();
   const { data: pszok } = useQuery(
     ["pszok", { cache: true }],
     API.dictionary.fetchAll
@@ -33,7 +35,7 @@ const PszokList = () => {
         type="text"
         className="finder"
         onChange={checkFilter}
-        placeholder="Filtrowanie PSZOK po mieście lub ulicy"
+        placeholder={t("Filtrowanie PSZOK po mieście lub ulicy")}
       />
       {listFilter.filterFound
         ? listFilter.filterFound.map((item, i) =>
@@ -58,7 +60,7 @@ const PszokList = () => {
                 onClick={() => setCounter(counter + counterMax)}
                 key={i}
               >
-                więcej...
+                {`${t("więcej")}...`}
               </button>
             ) : null
           )
