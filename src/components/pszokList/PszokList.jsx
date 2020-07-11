@@ -12,7 +12,7 @@ const PszokList = () => {
 
   const [listFilter, addListFilter] = useState({ filterFound: pszok });
   const [mapId, setMapId] = useState(0);
-  const counterMax = parseInt(process.env.REACT_APP_COUNTER_MAX, 10);
+  const counterMax = parseInt(process.env.REACT_APP_COUNTER_MAX, 10) || 3;
   const [counter, setCounter] = useState(counterMax);
 
   const checkFilter = (e) => {

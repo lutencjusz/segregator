@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import Tilt from "react-tilt";
 
 const containerStyle = {
   width: "80vw",
   height: "40vw",
 };
-
 
 const Pszok = ({ obj, mapa, onClick, lat, lng }) => {
   const [, setMap] = React.useState(null); //nie odczytuję wartości
@@ -23,10 +23,18 @@ const Pszok = ({ obj, mapa, onClick, lat, lng }) => {
   return (
     <Fragment>
       <div className="media pszok">
-        <button onClick={onClick} category={obj}>
-          <img src={obj.image} alt={obj.name} />
-        </button>
-
+        <Tilt
+          className="Tilt"
+          options={{ 
+            max: 25, 
+            scale: 1.05
+          }}
+          style={{ height: 100, width: 120 }}
+        >
+          <button onClick={onClick} category={obj}>
+            <img src={obj.image} alt={obj.name} />
+          </button>
+        </Tilt>
         <div className="media-body">
           <h4 className="mt-0">{obj.name}</h4>
           <h6>{obj.working}</h6>
@@ -55,4 +63,3 @@ const Pszok = ({ obj, mapa, onClick, lat, lng }) => {
 };
 
 export default Pszok;
-
