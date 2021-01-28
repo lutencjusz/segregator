@@ -97,8 +97,10 @@ display: flex;
 
 .button_lng {
   width: 3vw;
+  max-width: 2rem;
   height: 3vw;
-  margin: 1vw;
+  max-height: 2rem;
+  margin: 0.5vw;
 }
 
 .button_w img {
@@ -254,7 +256,7 @@ small:hover {
 
 .naglowek .tytul:hover {
   transition-duration: 0.4s;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .tytul_a {

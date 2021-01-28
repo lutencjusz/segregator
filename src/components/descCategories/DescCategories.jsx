@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import Trashes from "../trashes";
 import { SuspenseErrorBoundary } from "components";
@@ -20,7 +20,8 @@ const DescCategories = ({ selectedCategories }) => {
   return (
     <SuspenseErrorBoundary>
       {categories ? (
-        <Fragment>
+        <div className="row">
+          <div className="col-12">
           <Trashes />
             <div className="media media_category">
               <img src={obj.image} className="mr-3" alt={obj.name} />
@@ -44,7 +45,8 @@ const DescCategories = ({ selectedCategories }) => {
               <h5>{t("Nie")}:</h5>
               <h6>{obj.descNo}</h6>
             </div>
-        </Fragment>
+            </div>
+        </div>
       ) : null}
     </SuspenseErrorBoundary>
   );
