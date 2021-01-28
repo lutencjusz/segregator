@@ -1,9 +1,27 @@
+@-webkit-keyframes blackToBlue {
+  from {
+    color: black;
+  }
+  to {
+    color: blue;
+  }
+}
+
 @keyframes blackToBlue {
   from {
     color: black;
   }
   to {
     color: blue;
+  }
+}
+
+@-webkit-keyframes thinToBold {
+  from {
+    border-bottom: 0.5px solid black;
+  }
+  to {
+    border-bottom: 2px solid black;
   }
 }
 
@@ -28,12 +46,11 @@
 .odstep {
   margin: 10px;
   text-align: center;
+  flex-grow: 1;
 }
 
 .doPrawej {
-  text-align: right;
-  display: grid;
-  grid-template-columns: 1fr 6fr 1fr 1fr 1fr 1fr 1fr;
+display: flex;
 }
 
 .doLewej {
@@ -41,6 +58,9 @@
 }
 
 .tlo {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
   padding-top: 15px;
   padding-bottom: 30px;
 }
@@ -73,6 +93,12 @@
   background: #8dff8d;
   box-shadow: 6px 6px 12px #78d978, -6px -6px 12px #a2ffa2;
   transition-duration: 0.2s;
+}
+
+.button_lng {
+  width: 3vw;
+  height: 3vw;
+  margin: 1vw;
 }
 
 .button_w img {
@@ -263,10 +289,14 @@ small:hover {
 
 .custom-typeahead .form-control:hover,
 .finder:hover {
-  animation-name: thinToBold;
-  animation-duration: 100ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: both;
+  -webkit-animation-name: thinToBold;
+          animation-name: thinToBold;
+  -webkit-animation-duration: 100ms;
+          animation-duration: 100ms;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
   border-bottom: 2px solid black;
   box-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
   text-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
@@ -278,10 +308,14 @@ small:hover {
   text-decoration: none;
   background-color: #80ff80;
   box-shadow: none;
-  animation-name: blackToBlue;
-  animation-duration: 100ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: both;
+  -webkit-animation-name: blackToBlue;
+          animation-name: blackToBlue;
+  -webkit-animation-duration: 100ms;
+          animation-duration: 100ms;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
   border-bottom: 2px solid blue;
   text-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
   box-shadow: 11px 11px 22px #78d978, -11px -11px 22px #a2ffa2;
@@ -365,6 +399,12 @@ small:hover {
     width: 75px;
   }
 
+  .button_w.button_lng {
+    width: 4vw;
+    height: 4vw;
+    margin: 1vw;
+  }
+
   .media img {
     width: 40%;
     min-width: 30px;
@@ -399,6 +439,12 @@ small:hover {
     width: 5rem;
   }
 
+  .button_w.button_lng {
+    width: 4vw;
+    height: 4vw;
+    margin: 1vw;
+  }
+
   .button_w img {
     width: 60px;
   }
@@ -421,6 +467,12 @@ small:hover {
 @media only screen and (max-width: 576px) {
   .button_w {
     width: 4rem;
+  }
+
+  .button_w.button_lng {
+    width: 5vw;
+    height: 5vw;
+    margin: 1vw;
   }
 
   .button_w img {
@@ -446,6 +498,12 @@ small:hover {
     width: 2.5rem;
     margin: 5px;
   }
+  .button_w.button_lng {
+    width: 5vw;
+    height: 5vw;
+    margin: 1vw;
+  }
+  
 
   .button_w img {
     width: 25px;

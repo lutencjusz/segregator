@@ -28,12 +28,12 @@ const App = () => {
           <div>
             <div className="doPrawej">
               <MyLottie />
-              <span></span>
-              <button className="button_w" onClick={() => i18n.changeLanguage('pl')}>pl</button>
-              <button className="button_w" onClick={() => i18n.changeLanguage('en')}>en</button>
-              <button className="button_w" onClick={() => i18n.changeLanguage('de')}>de</button>
-              <button className="button_w" onClick={() => i18n.changeLanguage('fr')}>fr</button>
-              <button className="button_w" onClick={() => i18n.changeLanguage('zh-CN')}>ch</button>
+              <span className="odstep"></span>
+              <button className="button_w button_lng" onClick={() => i18n.changeLanguage('pl')}>pl</button>
+              <button className="button_w button_lng" onClick={() => i18n.changeLanguage('en')}>en</button>
+              <button className="button_w button_lng" onClick={() => i18n.changeLanguage('de')}>de</button>
+              <button className="button_w button_lng" onClick={() => i18n.changeLanguage('fr')}>fr</button>
+              <button className="button_w button_lng" onClick={() => i18n.changeLanguage('zh-CN')}>ch</button>
             </div>
             <Link to="/#/" className="naglowek_a">
               <h2 className="naglowek"><div className="tytul">{t("Klasyfikacja odpadków")}</div></h2>
@@ -44,24 +44,28 @@ const App = () => {
           <Route exact path="/">
             <SuspenseErrorBoundary>
               <Searcher />
+              <span className="odstep"></span>
               <Footer/>
             </SuspenseErrorBoundary>
           </Route>
           <Route path="/pomoc">
             <SuspenseErrorBoundary>
               <DescCategories />
+              <span className="odstep"></span>
               <Footer/>
             </SuspenseErrorBoundary>
           </Route>
           <Route exact path="/dodajKandydata">
             <SuspenseErrorBoundary>
               <AddCandidate />
+              <span className="odstep"></span>
               <Footer/>
             </SuspenseErrorBoundary>
           </Route>
           <Route exact path="/listaPunktow">
             <SuspenseErrorBoundary>
               <PszokList/>
+              <span className="odstep"></span>
               <Footer/>
             </SuspenseErrorBoundary>
           </Route>
