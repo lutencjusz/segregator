@@ -11,6 +11,8 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "browserslist": "^4.16.1",
+    "docz": "^2.3.1",
+    "gatsby": "^2.31.1",
     "mui-rff": "^2.1.15",
     "react": "^16.13.1",
     "react-bootstrap-typeahead": "^5.0.0-rc.1",
